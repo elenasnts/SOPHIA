@@ -16,8 +16,12 @@ crea_synpuf <- function(){
   # Connexió
   # con <- dbConnect(RSQLite::SQLite(),
   #                  dbname = ":memory:")
-  con <- DatabaseConnector::connect(dbms = "sqlite",
-                                    server = tempfile())
+  # con <- DatabaseConnector::connect(dbms = "sqlite",
+  #                                   server = tempfile())
+  con <- DatabaseConnector::connect(dbms = 'postgresql',
+                                    user = 'jordi',
+                                    password = 'jordi',
+                                    server = 'localhost/postgres')
 
   person <- data.table::fread(input = 'inst/extdata/person.csv',
                               sep = '\t',
@@ -41,12 +45,15 @@ crea_synpuf <- function(){
                      'ethnicity_source_value',
                      'ethnicity_source_concept_id')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "PERSON",
                                  data = person,
                                  createTable = TRUE)
-  # dbWriteTable(conn = con,
-  #              name = "PERSON",
-  #              value =  person)
+  # DBI::dbWriteTable(conn = con,
+  #                   name = DBI::Id(schema = SQL('synpuf'), name = SQL("PERSON")),
+  #                   value =  person)
+  # DBI::dbGetQuery(conn = con,
+  #                 statement = "SELECT * INTO SYNPUF.PERSON FROM PERSON")
 
   obs_per <- data.table::fread(input = 'inst/extdata/observation_period.csv',
                                sep = '\t',
@@ -56,7 +63,10 @@ crea_synpuf <- function(){
                       'observation_period_start_date',
                       'observation_period_end_date',
                       'period_type_concept_id')
+  obs_per[, `:=`(observation_period_start_date = as.Date(observation_period_start_date),
+                 observation_period_end_date = as.Date(observation_period_end_date))]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "OBSERVATION_PERIOD",
                                  data = obs_per,
                                  createTable = TRUE)
@@ -84,7 +94,12 @@ crea_synpuf <- function(){
                       'discharge_to_concept_id',
                       'discharge_to_source_value',
                       'preceding_visit_occurrence_id')
+  vis_occ[, `:=`(visit_start_date = as.Date(visit_start_date),
+                 visit_start_datetime = visit_start_datetime + 1,
+                 visit_end_date = as.Date(visit_end_date),
+                 visit_end_datetime = visit_end_datetime + 1)]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "VISIT_OCCURRENCE",
                                  data = vis_occ,
                                  createTable = TRUE)
@@ -112,7 +127,11 @@ crea_synpuf <- function(){
                   'condition_source_concept_id',
                   'condition_status_source_value',
                   'condition_status_concept_id')
+  co2[, `:=`(condition_start_date = as.Date(condition_start_date),
+             condition_start_datetime = condition_start_datetime + 1,
+             condition_end_date = as.Date(condition_end_date))]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CONDITION_OCCURRENCE",
                                  data = co2,
                                  createTable = TRUE)
@@ -146,7 +165,13 @@ crea_synpuf <- function(){
                        'drug_source_concept_id',
                        'route_source_value',
                        'dose_unit_source_value')
+  drug_exp[, `:=`(drug_exposure_start_date =as.Date(drug_exposure_start_date),
+                  drug_exposure_start_datetime = drug_exposure_start_datetime + 1,
+                  drug_exposure_end_date = as.Date(drug_exposure_end_date),
+                  drug_exposure_end_datetime = drug_exposure_end_datetime + 1,
+                  verbatim_end_date = as.Date(verbatim_end_date))]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "DRUG_EXPOSURE",
                                  data = drug_exp,
                                  createTable = TRUE)
@@ -172,7 +197,10 @@ crea_synpuf <- function(){
                        'procedure_source_concept_id',
                        'qualifier_source_value')
                        # 'modifier_source_value')
+  proc_occ[, `:=`(procedure_date = as.Date(procedure_date),
+                  procedure_datetime = procedure_datetime + 1)]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "PROCEDURE_OCCURRENCE",
                                  data = proc_occ,
                                  createTable = TRUE)
@@ -197,7 +225,12 @@ crea_synpuf <- function(){
                       'visit_occurrence_id',
                       'device_source_value',
                       'device_source_concept_id')
+  dev_exp[, `:=`(device_exposure_start_date = as.Date(device_exposure_start_date),
+                 device_exposure_start_datetime = device_exposure_start_datetime + 1,
+                 device_exposure_end_date = as.Date(device_exposure_end_date),
+                 device_exposure_end_datetime = device_exposure_end_datetime + 1)]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "DEVICE_EXPOSURE",
                                  data = dev_exp,
                                  createTable = TRUE)
@@ -226,7 +259,10 @@ crea_synpuf <- function(){
                    'measurement_source_concept_id',
                    'unit_source_value',
                    'value_source_value')
+  meas[, `:=`(measurement_date = as.Date(measurement_date),
+              measurement_datetime = measurement_datetime + 1)]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "MEASUREMENT",
                                  data = meas,
                                  createTable = TRUE)
@@ -254,7 +290,10 @@ crea_synpuf <- function(){
                   'observation_source_concept_id',
                   'unit_source_value',
                   'qualifier_source_value')
+  obs[, `:=`(observation_date = as.Date(observation_date),
+             observation_datetime = observation_datetime + 1)]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "OBSERVATION",
                                  data = obs,
                                  createTable = TRUE)
@@ -272,7 +311,10 @@ crea_synpuf <- function(){
                     'cause_concept_id',
                     'cause_source_value',
                     'cause_source_concept_id')
+  death[, `:=`(death_date = as.Date(death_date),
+               death_datetime = death_datetime + 1)]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "DEATH",
                                  data = death,
                                  createTable = TRUE)
@@ -292,6 +334,7 @@ crea_synpuf <- function(){
                    'county',
                    'location_source_value')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "LOCATION",
                                  data = loca,
                                  createTable = TRUE)
@@ -309,6 +352,7 @@ crea_synpuf <- function(){
                    'care_site_source_value',
                    'place_of_service_source_value')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CARE_SITE",
                                  data = care,
                                  createTable = TRUE)
@@ -333,6 +377,7 @@ crea_synpuf <- function(){
                    'gender_source_value',
                    'gender_source_concept_id')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "PROVIDER",
                                  data = prov,
                                  createTable = TRUE)
@@ -350,7 +395,10 @@ crea_synpuf <- function(){
                     'payer_source_value',
                     'plan_source_value',
                     'family_source_value')
+  payer[, `:=`(payer_plan_period_start_date = payer_plan_period_start_date + 1,
+               payer_plan_period_end_date = payer_plan_period_end_date + 1)]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "PAYER_PLAN_PERIOD",
                                  data = payer,
                                  createTable = TRUE)
@@ -384,6 +432,7 @@ crea_synpuf <- function(){
                    'drg_concept_id',
                    'drg_source_value')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "COST",
                                  data = cost,
                                  createTable = TRUE)
@@ -401,7 +450,10 @@ crea_synpuf <- function(){
                        'drug_era_end_date',
                        'drug_exposure_count',
                        'gap_days')
+  drug_era[, `:=`(drug_era_start_date = as.Date(drug_era_start_date),
+                  drug_era_end_date = as.Date(drug_era_end_date))]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "DRUG_ERA",
                                  data = drug_era,
                                  createTable = TRUE)
@@ -418,7 +470,10 @@ crea_synpuf <- function(){
                        'condition_era_start_date',
                        'condition_era_end_date',
                        'condition_occurrence_count')
+  cond_era[, `:=`(condition_era_start_date = as.Date(condition_era_start_date),
+                  condition_era_end_date = as.Date(condition_era_end_date))]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CONDITION_ERA",
                                  data = cond_era,
                                  createTable = TRUE)
@@ -439,7 +494,10 @@ crea_synpuf <- function(){
                          'cdm_release_date',
                          'cdm_version',
                          'vocabulary_version')
+  cdm_source[, `:=`(source_release_date = as.Date(source_release_date),
+                    cdm_release_date = as.Date(cdm_release_date))]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CDM_SOURCE",
                                  data = cdm_source,
                                  createTable = TRUE)
@@ -460,7 +518,10 @@ crea_synpuf <- function(){
                       'valid_start_date',
                       'valid_end_date',
                       'invalid_reason')
+  concept[, `:=`(valid_start_date = as.Date(valid_start_date),
+                 valid_end_date = as.Date(valid_end_date))]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CONCEPT",
                                  data = concept,
                                  createTable = TRUE)
@@ -477,6 +538,7 @@ crea_synpuf <- function(){
                          'vocabulary_version',
                          'vocabulary_concept_id')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "VOCABULARY",
                                  data = vocabulary,
                                  createTable = TRUE)
@@ -491,6 +553,7 @@ crea_synpuf <- function(){
                      'domain_name',
                      'domain_concept_id')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "DOMAIN_meu",
                                  data = domain,
                                  createTable = TRUE)
@@ -505,6 +568,7 @@ crea_synpuf <- function(){
                         'concept_class_name',
                         'concept_class_concept_id')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CONCEPT_CLASS",
                                  data = con_class,
                                  createTable = TRUE)
@@ -521,7 +585,10 @@ crea_synpuf <- function(){
                        'valid_start_date',
                        'valid_end_date',
                        'invalid_reason')
+  con_rela[, `:=`(valid_start_date = as.Date(valid_start_date),
+                  valid_end_date = as.Date(valid_end_date))]
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CONCEPT_RELATIONSHIP",
                                  data = con_rela,
                                  createTable = TRUE)
@@ -539,6 +606,7 @@ crea_synpuf <- function(){
                        'reverse_relationship_id',
                        'relationship_concept_id')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "RELATIONSHIP",
                                  data = relation,
                                  createTable = TRUE)
@@ -553,6 +621,7 @@ crea_synpuf <- function(){
                       'concept_synonym_name',
                       'language_concept_id')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CONCEPT_SYNONYM",
                                  data = con_syn,
                                  createTable = TRUE)
@@ -568,6 +637,7 @@ crea_synpuf <- function(){
                       'min_levels_of_separation',
                       'max_levels_of_separation')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "CONCEPT_ANCESTOR",
                                  data = con_anc,
                                  createTable = TRUE)
@@ -591,6 +661,7 @@ crea_synpuf <- function(){
                        'valid_end_date',
                        'invalid_reason')
   DatabaseConnector::insertTable(connection = con,
+                                 databaseSchema = 'synpuf',
                                  tableName = "DRUG_STRENGTH",
                                  data = drug_str,
                                  createTable = TRUE)
