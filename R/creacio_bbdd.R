@@ -199,6 +199,7 @@ DatabaseConnector::insertTable(connection = cdm_bbdd,
                                dropTableIfExists = TRUE)
 
 covariateSettings <- FeatureExtraction::createDefaultCovariateSettings()
+settings2 <- FeatureExtraction::convertPrespecSettingsToDetailedSettings(covariateSettings)
 covariateData <- FeatureExtraction::getDbCovariateData(connection = cdm_bbdd,
                                                        cdmDatabaseSchema = cdm_schema,
                                                        cohortTable = "cohort",
@@ -212,3 +213,44 @@ covariateData2 <- FeatureExtraction::aggregateCovariates(covariateData)
 result <- FeatureExtraction::createTable1(covariateData2,
                                           output = "one column")
 View(result)
+
+covariateSettings_m <- FeatureExtraction::createCovariateSettings(
+  useDemographicsGender = TRUE,
+  useDemographicsAge = TRUE,
+  useDemographicsAgeGroup = TRUE,
+  useConditionOccurrenceAnyTimePrior = TRUE,
+  useConditionGroupEraAnyTimePrior = TRUE,
+  useConditionOccurrencePrimaryInpatientAnyTimePrior = TRUE,
+  useDrugExposureAnyTimePrior = TRUE,
+  useMeasurementAnyTimePrior = TRUE,
+  # useMeasurementValueAnyTimePrior = TRUE,
+  useMeasurementRangeGroupAnyTimePrior = TRUE,
+  useObservationAnyTimePrior = TRUE,
+  includedCovariateConceptIds = 201826,
+  addDescendantsToInclude = TRUE)#,
+
+
+
+settings_m <- FeatureExtraction::convertPrespecSettingsToDetailedSettings(covariateSettings_m)
+covariateData_m <- FeatureExtraction::getDbCovariateData(connection = cdm_bbdd,
+                                                         cdmDatabaseSchema = cdm_schema,
+                                                         cohortTable = "cohort",
+                                                         cohortDatabaseSchema = results,
+                                                         cohortId = -1,
+                                                         # rowIdField = "subject_id",
+                                                         covariateSettings = covariateSettings_m,
+                                                         aggregated = TRUE)
+# covariateData2_m <- FeatureExtraction::aggregateCovariates(covariateData_m)
+result_m <- FeatureExtraction::createTable1(covariateData2_m,
+                                            output = "one column")
+View(result_m)
+
+cdm_schema <- ''
+results <- ''
+
+library(CohortDiagnostics)
+cdmDatabaseSchema <- "synpuf"
+tempEmulationSchema <- NULL
+cohortDatabaseSchema <- "results"
+cohortTable <- "COHORT"
+preMergeDiagnosticsFiles('www/allZipFiles')
