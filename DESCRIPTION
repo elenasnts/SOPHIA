@@ -12,8 +12,12 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Imports: 
+    Capr,
+    CirceR,
+    CohortGenerator,
     data.table,
     DatabaseConnector,
-    roxygen2
+    roxygen2,
+    uuid
