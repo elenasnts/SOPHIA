@@ -1,12 +1,13 @@
-#' create a Cohort
+#' Title
 #'
 #' @param cdm_bbdd A connection for a OMOP database via DatabaseConnector
 #' @param cdm_schema A name for OMOP schema
 #' @param results_sc A name for result schema
 #' @param cohortTable A name of the result cohort
 #' @param cohortDefinitionSet Object including SQL and JSON for create Cohort
+#' @param exportFolder Directory to save Diagnostic
 #'
-#' @return Count of the cohorts
+#' @return Character
 #' @export
 #'
 #' @examples
@@ -37,38 +38,28 @@
 #'                                            outcomeInfo$circeJson),
 #'                                   logicDescription = rep(as.character(NA), 2),
 #'                                   generateStats = rep(TRUE, 2))
-#' cohortCounts <- createCohort(cdm_bbdd, cdm_schema, results_sc, cohortTable,
-#'                              cohortDefinitionSet)
-createCohort <- function(cdm_bbdd,
-                         cdm_schema,
-                         results_sc,
-                         cohortTable,
-                         cohortDefinitionSet){
-  # cohortDefinitionSet <- data.frame(atlasId = rep(NA, 2),
-  #                                   cohortId = 1:2,
-  #                                   cohortName = c("SIDIAP T2DM-WP5: Entrada",
-  #                                                  "SIDIAP T2DM-WP5: Outcome"),
-  #                                   sql = c(cohortInfo$ohdiSQL,
-  #                                           outcomeInfo$ohdiSQL),
-  #                                   json = c(cohortInfo$circeJson,
-  #                                            outcomeInfo$circeJson),
-  #                                   logicDescription = rep(as.character(NA), 2),
-  #                                   generateStats = rep(T, 2))
-
-    cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = cohortTable)
-    CohortGenerator::createCohortTables(connection = cdm_bbdd,
-                                        cohortTableNames = cohortTableNames,
+#' # cohortCounts <- createCohort(cdm_bbdd, cdm_schema, results_sc, cohortTable,
+#' #                              cohortDefinitionSet)
+#' # fet_diag <- runDiagnostic(cdm_bbdd, cdm_schema, results_sc, cohortTable,
+#' #                           cohortDefinitionSet)
+runDiagnostic <- function(cdm_bbdd,
+                          cdm_schema,
+                          results_sc,
+                          cohortTable,
+                          cohortDefinitionSet,
+                          exportFolder = 'export'){
+  CohortDiagnostics::executeDiagnostics(cohortDefinitionSet,
+                                        connection = cdm_bbdd,
+                                        cohortTable = cohortTable,
                                         cohortDatabaseSchema = results_sc,
-                                        incremental = FALSE)
-    CohortGenerator::generateCohortSet(connection = cdm_bbdd,
-                                       cdmDatabaseSchema = cdm_schema,
-                                       cohortDatabaseSchema = results_sc,
-                                       cohortTableNames = cohortTableNames,
-                                       cohortDefinitionSet = cohortDefinitionSet,
-                                       incremental = FALSE)
-    cohortCounts <- CohortGenerator::getCohortCounts(connection = cdm_bbdd,
-                                                     cohortDatabaseSchema = results_sc,
-                                                     cohortTable = cohortTableNames$cohortTable)
-    return(list(cohortDefinitionSet = cohortDefinitionSet,
-                cohortCounts = cohortCounts))
+                                        cdmDatabaseSchema = cdm_schema,
+                                        exportFolder = exportFolder,
+                                        databaseId = "T2DM",
+                                        minCellCount = 0)
+  cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = cohortTable)
+  CohortGenerator::dropCohortStatsTables(connection = cdm_bbdd,
+                                         cohortDatabaseSchema = results_sc,
+                                         cohortTableNames = cohortTableNames)
+  CohortDiagnostics::preMergeDiagnosticsFiles(exportFolder)
+  return("Fet")
 }

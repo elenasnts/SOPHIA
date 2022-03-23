@@ -3,3 +3,5 @@
 export(CreateSQL_T2DM)
 export(CreateSQL_T2DM_outcome)
 export(createCohort)
+export(runDiagnostic)
+export(runStudy)

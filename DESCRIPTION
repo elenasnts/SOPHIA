@@ -16,6 +16,7 @@ RoxygenNote: 7.1.2
 Imports: 
     Capr,
     CirceR,
+    CohortDiagnostics,
     CohortGenerator,
     data.table,
     DatabaseConnector,
