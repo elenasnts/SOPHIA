@@ -2,6 +2,9 @@
 
 export(CreateSQL_T2DM)
 export(CreateSQL_T2DM_outcome)
+export(buildData)
 export(createCohort)
+export(createSmokingCovariateSettings)
+export(getDbSmokingCovariateData)
 export(runDiagnostic)
 export(runStudy)
