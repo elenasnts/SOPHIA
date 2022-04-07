@@ -296,6 +296,15 @@ buildData <- function(cdm_bbdd,
   return(covariateData)
 }
 
+#' Transform covariateData object into FlatTable
+#'
+#' @param covariateData A covariateDate object
+#'
+#' @return A data.table with the covariate data
+#' @export
+#'
+#' @examples
+#' #Not yet
 transformToFlat <- function(covariateData){
   bbdd_covar <- dplyr::collect(covariateData$covariates)
   bbdd_covar <-  dplyr::mutate(
