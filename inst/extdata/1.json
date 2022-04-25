@@ -1,0 +1,2374 @@
+{
+ "ConceptSets": [
+ {
+ "id": 0,
+"name": "Diabetes Diagnosis",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 195771,
+"CONCEPT_NAME": "Secondary diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "8801005",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"isExcluded": true,
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 201254,
+"CONCEPT_NAME": "Type 1 diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "46635009",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"isExcluded": true,
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 201820,
+"CONCEPT_NAME": "Diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "73211009",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 435216,
+"CONCEPT_NAME": "Disorder due to type 1 diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "420868002",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"isExcluded": true,
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 442793,
+"CONCEPT_NAME": "Complication due to diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "74627003",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 443238,
+"CONCEPT_NAME": "Diabetic - poor control",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "268519009",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 761051,
+"CONCEPT_NAME": "Complication due to secondary diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "138811000119100",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"isExcluded": true,
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4058243,
+"CONCEPT_NAME": "Diabetes mellitus during pregnancy, childbirth and the puerperium",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "199223000",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"isExcluded": true,
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 40484648,
+"CONCEPT_NAME": "Type 1 diabetes mellitus uncontrolled",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "444073006",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"isExcluded": true,
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 1,
+"name": "History of Diabetes Diagnosis",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 40769338,
+"CONCEPT_NAME": "History of Diabetes (regardless of treatment) [PhenX]",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "66678-4",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "LOINC",
+"CONCEPT_CLASS_ID": "Clinical Observation" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42539022,
+"CONCEPT_NAME": "History of diabetes related lower limb amputation",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "735199000",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Context-dependent" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 43021173,
+"CONCEPT_NAME": "History of diabetes mellitus type 2",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "472969004",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Context-dependent" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 46270562,
+"CONCEPT_NAME": "History of small vessel disease due to diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "59801000119102",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Context-dependent" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 2,
+"name": "Type 1 Diabetes Diagnosis",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 201254,
+"CONCEPT_NAME": "Type 1 diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "46635009",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 435216,
+"CONCEPT_NAME": "Disorder due to type 1 diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "420868002",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4058243,
+"CONCEPT_NAME": "Diabetes mellitus during pregnancy, childbirth and the puerperium",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "199223000",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 40484648,
+"CONCEPT_NAME": "Type 1 diabetes mellitus uncontrolled",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "444073006",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 3,
+"name": "Type 1 Diabetes Medications",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 1596977,
+"CONCEPT_NAME": "insulin, regular, human",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "253182",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Ingredient" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19058398,
+"CONCEPT_NAME": "insulin lispro 100 UNT/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "242120",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19078552,
+"CONCEPT_NAME": "insulin isophane, human 100 UNT/ML Injectable Suspension",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "311028",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19078559,
+"CONCEPT_NAME": "insulin glargine 100 UNT/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "311041",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19095211,
+"CONCEPT_NAME": "insulin lispro 100 UNT/ML",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "343076",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug Comp" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19095212,
+"CONCEPT_NAME": "insulin isophane, beef 100 UNT/ML",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "343077",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug Comp" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19112791,
+"CONCEPT_NAME": "insulin glulisine, human 100 UNT/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "485210",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19133793,
+"CONCEPT_NAME": "insulin aspart protamine, human 50 UNT/ML / insulin aspart, human 50 UNT/ML Injectable Suspension",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "833159",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19135264,
+"CONCEPT_NAME": "3 ML insulin, regular, human 100 UNT/ML Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "847203",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Quant Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 21076306,
+"CONCEPT_NAME": "Insulin, Pork 100 UNT/ML Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP272142",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 21086042,
+"CONCEPT_NAME": "Insulin, Pork Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP272132",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug Form" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 35410536,
+"CONCEPT_NAME": "Insulin Glargine 100 UNT/ML Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP1144121",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 35412958,
+"CONCEPT_NAME": "Insulin, Glulisine, Human 100 UNT/ML Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP1146543",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 40051377,
+"CONCEPT_NAME": "insulin isophane / insulin, regular, human Injectable Suspension",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "378857",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug Form" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 40052768,
+"CONCEPT_NAME": "insulin, regular, human Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "376915",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug Form" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42479783,
+"CONCEPT_NAME": "Insulin Lispro 200 UNT/ML Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP420222",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42481504,
+"CONCEPT_NAME": "Insulin Glargine Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP419425",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug Form" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42481541,
+"CONCEPT_NAME": "Insulin Lispro 100 UNT/ML Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP420218",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42899447,
+"CONCEPT_NAME": "insulin, pork",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1309342",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Ingredient" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42902356,
+"CONCEPT_NAME": "insulin aspart protamine, human 70 UNT/ML / insulin aspart, human 30 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1359469",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42902587,
+"CONCEPT_NAME": "insulin lispro 25 UNT/ML / insulin lispro protamine, human 75 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1359700",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42902742,
+"CONCEPT_NAME": "insulin glargine 100 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1359855",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42902821,
+"CONCEPT_NAME": "insulin detemir 100 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1359934",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42902945,
+"CONCEPT_NAME": "insulin lispro 50 UNT/ML / insulin lispro protamine, human 50 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1360058",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42903059,
+"CONCEPT_NAME": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Prefilled Syringe",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1360172",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 44058584,
+"CONCEPT_NAME": "Insulin, Pork 100 UNT/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP1053215",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 46233969,
+"CONCEPT_NAME": "3 ML insulin lispro 100 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1652639",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Quant Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 46234047,
+"CONCEPT_NAME": "3 ML insulin aspart, human 100 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1653202",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Quant Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 46234234,
+"CONCEPT_NAME": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1654857",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 46234237,
+"CONCEPT_NAME": "3 ML insulin isophane, human 100 UNT/ML Pen Injector",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1654862",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Quant Clinical Drug" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 4,
+"name": "Secondary Diabetes Diagnosis",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 195771,
+"CONCEPT_NAME": "Secondary diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "8801005",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 761051,
+"CONCEPT_NAME": "Complication due to secondary diabetes mellitus",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "138811000119100",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 5,
+"name": "End-stage kidney disease",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 192359,
+"CONCEPT_NAME": "Renal failure syndrome",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "42399005",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 193782,
+"CONCEPT_NAME": "End-stage renal disease",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "46177005",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 199991,
+"CONCEPT_NAME": "Disorder of transplanted kidney",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "58797008",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 443611,
+"CONCEPT_NAME": "Chronic kidney disease stage 5",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "433146000",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 443919,
+"CONCEPT_NAME": "Hypertensive renal failure",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "49220004",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617395,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES DURING THE COURSE OF TREATMENT, FOR PATIENTS 20 YEARS OF AGE AND OVER; WITH 4 OR MORE FACE-TO-FACE PHYSICIAN VISITS PER MONTH",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0317",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617396,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES DURING THE COURSE OF TREATMENT, FOR PATIENTS 20 YEARS OF AGE AND OVER; WITH 2 OR 3 FACE-TO-FACE PHYSICIAN VISITS PER MONTH",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0318",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617397,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES DURING THE COURSE OF TREATMENT, FOR PATIENTS 20 YEARS OF AGE AND OVER; WITH 1 FACE-TO-FACE PHYSICIAN VISIT PER MONTH",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0319",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617398,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES FOR HOME DIALYSIS PATIENTS PER FULL MONTH; FOR PATIENTS UNDER TWO YEARS OF AGE TO INCLUDE MONITORING FOR ADEQUACY OF NUTRITION, ASSESSMENT OF GROWTH AND DEVELOPMENT, AND COUNSELING OF PARENTS",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0320",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617399,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES FOR HOME DIALYSIS PATIENTS PER FULL MONTH; FOR PATIENTS TWO TO ELEVEN YEARS OF AGE TO INCLUDE MONITORING FOR ADEQUACY OF NUTRITION, ASSESSMENT OF GROWTH AND DEVELOPMENT, AND COUNSELING OF PARENTS",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0321",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617400,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES FOR HOME DIALYSIS PATIENTS PER FULL MONTH; FOR PATIENTS TWELVE TO NINETEEN YEARS OF AGE TO INCLUDE MONITORING FOR ADEQUACY OF NUTRITION, ASSESSMENT OF GROWTH AND DEVELOPMENT, AND COUNSELING OF PARENTS",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0322",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617401,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES FOR HOME DIALYSIS PATIENTS PER FULL MONTH; FOR PATIENTS TWENTY YEARS OF AGE AND OLDER",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0323",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617402,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES LESS THAN FULL MONTH, PER DAY; FOR PATIENTS UNDER TWO YEARS OF AGE",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0324",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617403,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES LESS THAN FULL MONTH, PER DAY; FOR PATIENTS BETWEEN TWO AND ELEVEN YEARS OF AGE",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0325",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617404,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES LESS THAN FULL MONTH, PER DAY; FOR PATIENTS BETWEEN TWELVE AND NINETEEN YEARS OF AGE",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0326",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 2617405,
+"CONCEPT_NAME": "END STAGE RENAL DISEASE (ESRD) RELATED SERVICES LESS THAN FULL MONTH, PER DAY; FOR PATIENTS TWENTY YEARS OF AGE AND OVER",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G0327",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4027133,
+"CONCEPT_NAME": "Complication of dialysis",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "19765000",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4032243,
+"CONCEPT_NAME": "Dialysis procedure",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "108241001",
+"DOMAIN_ID": "Procedure",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Procedure" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4090651,
+"CONCEPT_NAME": "Dialysis finding",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "251859005",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4309006,
+"CONCEPT_NAME": "Kidney transplant failure and rejection",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "213150003",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4324887,
+"CONCEPT_NAME": "Disorder related to renal transplantation",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "429451003",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 38003431,
+"CONCEPT_NAME": "Hemodialysis - Outpatient or Home - Hemodialysis/Composite or other rate",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "0821",
+"DOMAIN_ID": "Revenue Code",
+"VOCABULARY_ID": "Revenue Code",
+"CONCEPT_CLASS_ID": "Revenue Code" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42539502,
+"CONCEPT_NAME": "Transplanted kidney present",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "737295003",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 44786436,
+"CONCEPT_NAME": "Documentation of end stage renal disease (esrd), dialysis, renal transplant before or during the measurement period or pregnancy during the measurement period",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "G9231",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "HCPCS",
+"CONCEPT_CLASS_ID": "HCPCS" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 6,
+"name": "Abnormal eGFR",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 40764999,
+"CONCEPT_NAME": "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI)",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "62238-1",
+"DOMAIN_ID": "Measurement",
+"VOCABULARY_ID": "LOINC",
+"CONCEPT_CLASS_ID": "Lab Test" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 46236952,
+"CONCEPT_NAME": "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (MDRD)",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "77147-7",
+"DOMAIN_ID": "Measurement",
+"VOCABULARY_ID": "LOINC",
+"CONCEPT_CLASS_ID": "Lab Test" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 7,
+"name": "Depress",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 433440,
+"CONCEPT_NAME": "Dysthymia",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "78667006",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 440383,
+"CONCEPT_NAME": "Depressive disorder",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "35489007",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4098302,
+"CONCEPT_NAME": "Recurrent depression",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "191616006",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4282096,
+"CONCEPT_NAME": "Major depression, single episode",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "36923009",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 8,
+"name": "Schizophrenia",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 433450,
+"CONCEPT_NAME": "Paranoid schizophrenia",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "64905009",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 435783,
+"CONCEPT_NAME": "Schizophrenia",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "58214004",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 9,
+"name": "Seizure",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 380378,
+"CONCEPT_NAME": "Epilepsy",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "84757009",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 10,
+"name": "Malignant Neoplasm",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 137809,
+"CONCEPT_NAME": "Primary malignant neoplasm of female breast",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "93796005",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 139750,
+"CONCEPT_NAME": "Primary malignant neoplasm of skin",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "94047004",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 197500,
+"CONCEPT_NAME": "Primary malignant neoplasm of colon",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "93761005",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 200962,
+"CONCEPT_NAME": "Primary malignant neoplasm of prostate",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "93974005",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 439392,
+"CONCEPT_NAME": "Primary malignant neoplasm",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "372087000",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 443392,
+"CONCEPT_NAME": "Malignant neoplastic disease",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "363346000",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4144289,
+"CONCEPT_NAME": "H/O: malignant neoplasm",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "266987004",
+"DOMAIN_ID": "Observation",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Context-dependent" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 4311499,
+"CONCEPT_NAME": "Primary malignant neoplasm of respiratory tract",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "93986008",
+"DOMAIN_ID": "Condition",
+"VOCABULARY_ID": "SNOMED",
+"CONCEPT_CLASS_ID": "Clinical Finding" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+},
+{
+ "id": 11,
+"name": "Systemic steroids: H02 Medications",
+"expression": {
+ "items": [
+ {
+ "concept": {
+ "CONCEPT_ID": 975169,
+"CONCEPT_NAME": "hydrocortisone 20 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "197783",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1506426,
+"CONCEPT_NAME": "methylprednisolone 4 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "259966",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1506430,
+"CONCEPT_NAME": "methylprednisolone 40 MG Injection",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "311659",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1506479,
+"CONCEPT_NAME": "methylprednisolone 16 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "328161",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1518259,
+"CONCEPT_NAME": "dexamethasone 1 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "197579",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1518292,
+"CONCEPT_NAME": "dexamethasone 4 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "197582",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1551101,
+"CONCEPT_NAME": "prednisone 10 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "198145",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1551122,
+"CONCEPT_NAME": "prednisone 2.5 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "198146",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1551123,
+"CONCEPT_NAME": "prednisone 50 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "198148",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1551171,
+"CONCEPT_NAME": "prednisone 25 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "312616",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1551192,
+"CONCEPT_NAME": "prednisone 5 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "312617",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1555142,
+"CONCEPT_NAME": "fludrocortisone acetate 0.1 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "313979",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 1592257,
+"CONCEPT_NAME": "deflazacort 22.75 MG/ML Oral Suspension",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1870964",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19016866,
+"CONCEPT_NAME": "deflazacort 6 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "153098",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19018083,
+"CONCEPT_NAME": "deflazacort 30 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "153880",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19063670,
+"CONCEPT_NAME": "hydrocortisone 100 MG/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "250788",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19070310,
+"CONCEPT_NAME": "prednisolone 3 MG/ML Oral Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "283077",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19084229,
+"CONCEPT_NAME": "methylprednisolone 40 MG",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "330037",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug Comp" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19101595,
+"CONCEPT_NAME": "dexamethasone 8 MG/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "387080",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19104623,
+"CONCEPT_NAME": "methylprednisolone 20 MG/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "415817",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19106649,
+"CONCEPT_NAME": "dexamethasone 8 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "429196",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19106650,
+"CONCEPT_NAME": "methylprednisolone 40 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "429197",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19111643,
+"CONCEPT_NAME": "prednisone 30 MG",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "451143",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug Comp" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 19121383,
+"CONCEPT_NAME": "betamethasone 3 MG/ML / betamethasone acetate 3 MG/ML Injectable Suspension",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "578803",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 35606531,
+"CONCEPT_NAME": "methylprednisolone 125 MG",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1743702",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug Comp" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 35606542,
+"CONCEPT_NAME": "methylprednisolone 1000 MG Injection",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1743726",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 36884768,
+"CONCEPT_NAME": "Methylprednisolone 40 MG/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP994590",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 36893086,
+"CONCEPT_NAME": "prednisolone 13.1 MG/ML",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP1001124",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug Comp" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 37497612,
+"CONCEPT_NAME": "dexamethasone 20 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "2261802",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 40234819,
+"CONCEPT_NAME": "triamcinolone hexacetonide 20 MG/ML Injectable Suspension",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1085996",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 40241504,
+"CONCEPT_NAME": "dexamethasone phosphate 4 MG/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1116927",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 40897491,
+"CONCEPT_NAME": "Methylprednisolone 8.48 MG/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP2095453",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 40930518,
+"CONCEPT_NAME": "Clemastine 1.34 MG / Dexamethasone 0.5 MG Oral Tablet",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP2128480",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 41052849,
+"CONCEPT_NAME": "Paramethasone 20 MG/ML Injectable Solution",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "OMOP2250811",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm Extension",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+},
+{
+ "concept": {
+ "CONCEPT_ID": 42629020,
+"CONCEPT_NAME": "triamcinolone acetonide 40 MG/ML Injection",
+"STANDARD_CONCEPT": "S",
+"STANDARD_CONCEPT_CAPTION": "Standard",
+"INVALID_REASON": "V",
+"INVALID_REASON_CAPTION": "Valid",
+"CONCEPT_CODE": "1792147",
+"DOMAIN_ID": "Drug",
+"VOCABULARY_ID": "RxNorm",
+"CONCEPT_CLASS_ID": "Clinical Drug" 
+},
+"includeDescendants": true 
+} 
+] 
+} 
+} 
+],
+"PrimaryCriteria": {
+ "CriteriaList": [
+ {
+ "ConditionOccurrence": {
+ "CodesetId": 0 
+} 
+},
+{
+ "ConditionOccurrence": {
+ "CodesetId": 1 
+} 
+} 
+],
+"ObservationWindow": {
+ "PriorDays": 0,
+"PostDays": 0 
+},
+"PrimaryCriteriaLimit": {
+ "Type": "All" 
+} 
+},
+"QualifiedLimit": {
+ "Type": "First" 
+},
+"ExpressionLimit": {
+ "Type": "First" 
+},
+"InclusionRules": [
+ {
+ "name": ">=35 years old",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [],
+"DemographicCriteriaList": [
+ {
+ "Age": {
+ "Value": 35,
+"Op": "gte" 
+} 
+} 
+],
+"Groups": [] 
+} 
+},
+{
+ "name": "No Diagnosis of Type 1 Diabetes",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "ConditionOccurrence": {
+ "CodesetId": 2 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+},
+{
+ "name": "Without Insulin [-inf, T2DM + 6m)",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "DrugExposure": {
+ "CodesetId": 3 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 183,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+},
+{
+ "name": "No previous Secondary diabetes",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "ConditionOccurrence": {
+ "CodesetId": 4 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 0,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+},
+{
+ "name": "No previous Renal problems",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "ConditionOccurrence": {
+ "CodesetId": 5 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 0,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+},
+{
+ "Criteria": {
+ "Measurement": {
+ "CodesetId": 6,
+"ValueAsNumber": {
+ "Value": 15,
+"Op": "lt" 
+} 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 0,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+},
+{
+ "name": "No previous Depression",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "ConditionOccurrence": {
+ "CodesetId": 7 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 0,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+},
+{
+ "name": "No previous Schizophrenia",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "ConditionOccurrence": {
+ "CodesetId": 8 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 0,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+},
+{
+ "name": "No previous Seizure",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "ConditionOccurrence": {
+ "CodesetId": 9 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 0,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+},
+{
+ "name": "No previous Malignant Neoplasm",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "ConditionOccurrence": {
+ "CodesetId": 10 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 0,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+},
+{
+ "name": "No previous Corticoides",
+"expression": {
+ "Type": "ALL",
+"CriteriaList": [
+ {
+ "Criteria": {
+ "DrugExposure": {
+ "CodesetId": 11 
+} 
+},
+"StartWindow": {
+ "Start": {
+ "Coeff": -1 
+},
+"End": {
+ "Days": 0,
+"Coeff": 1 
+},
+"UseEventEnd": false,
+"UseIndexEnd": false 
+},
+"Occurrence": {
+ "Type": 0,
+"Count": 0 
+} 
+} 
+],
+"DemographicCriteriaList": [],
+"Groups": [] 
+} 
+} 
+],
+"CensoringCriteria": [
+ {
+ "ConditionOccurrence": {
+ "CodesetId": 5 
+} 
+},
+{
+ "ConditionOccurrence": {
+ "CodesetId": 7 
+} 
+},
+{
+ "ConditionOccurrence": {
+ "CodesetId": 8 
+} 
+},
+{
+ "ConditionOccurrence": {
+ "CodesetId": 9 
+} 
+},
+{
+ "ConditionOccurrence": {
+ "CodesetId": 10 
+} 
+} 
+],
+"CollapseSettings": {
+ "CollapseType": "ERA",
+"EraPad": 0 
+},
+"CensorWindow": {
+ "StartDate": "2009-12-31" 
+},
+"cdmVersionRange": ">=5.0.0" 
+}
