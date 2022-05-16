@@ -259,9 +259,14 @@ buildData <- function(cdm_bbdd,
   T2DM_conceptId <- c(201530111, 201826111, 376065111, 443729111, 443731111, 443733111,
                       4193704111, 4196141111, 4221495111, 36714116111, 37016349111,
                       37017432111, 43530685111, 43530690111, 43531563111, 43531578111,
-                      45770830111)
+                      45770830111,
+                      # Afegits executant el SIDIAP
+                      4099651111, 45757363111, 4140466111, 37016768111, 4222876111, 43531616111,
+                      45770881111)
   DM_conceptId <- c(442793111, 321822111, 443730111, 192279111, 4048028111, 4226798111,
-                    201820111, 4008576111, 443767111)
+                    201820111, 4008576111, 443767111,
+                    # Afegits executant el SIDIAP
+                    4044391111, 4009303111, 376112111, 4159742111, 4114427111, 4131908111)
   obesity_conceptId <- dplyr::pull(
     dplyr::filter(covariateData$covariateRef,
                   analysisId == 112),
@@ -320,6 +325,8 @@ transformToFlat <- function(covariateData){
     variable = dplyr::if_else(stringr::str_sub(covariateId, start = -3L) == 115, 'stroke', variable),
     variable = dplyr::if_else(stringr::str_sub(covariateId, start = -3L) == 116, 'tia', variable),
     variable = dplyr::if_else(covariateId == 21600712411, 'A10', variable),
+    variable = dplyr::if_else(covariateId == 21600713411, 'A10A', variable),
+    variable = dplyr::if_else(covariateId == 21600744411, 'A10B', variable),
     variable = dplyr::if_else(covariateId == 21601238411, 'C01', variable),
     variable = dplyr::if_else(covariateId == 21600381411, 'C02', variable),
     variable = dplyr::if_else(covariateId == 21601461411, 'C03', variable),
@@ -337,12 +344,13 @@ transformToFlat <- function(covariateData){
     variable = dplyr::if_else(covariateId %in% c(3004249323706, 4152194876706), 'SBP', variable),
     variable = dplyr::if_else(covariateId %in% c(3012888323706, 4154790876706), 'DBP', variable),
     variable = dplyr::if_else(covariateId == 3010813848706, 'Leukocytes', variable),
+    variable = dplyr::if_else(covariateId == 3001604554706, 'Monocytes', variable),
     variable = dplyr::if_else(covariateId == 3034639554706, 'HbA1c', variable),
     variable = dplyr::if_else(covariateId == 3027114840706, 'cT', variable),
     variable = dplyr::if_else(covariateId == 3011884840706, 'cHDL', variable),
     variable = dplyr::if_else(covariateId == 3028437840706, 'cLDL', variable),
     variable = dplyr::if_else(covariateId == 3022192840706, 'Tg', variable),
-    variable = dplyr::if_else(covariateId == 3004501840706,'Glucose', variable),
+    variable = dplyr::if_else(covariateId == 3004501840706, 'Glucose', variable),
     variable = dplyr::if_else(covariateId == 3006923645706, 'ALT', variable),
     variable = dplyr::if_else(covariateId == 3020460751706, 'CRP', variable),
     variable = dplyr::if_else(covariateId == 3001122748706, 'Ferritin', variable))
