@@ -13,7 +13,7 @@ transformToFlat(covariateData)
 A data.table with the covariate data
 }
 \description{
-Transform covariateData object into FlatTable
+Si volem agafar l'últim valor podem canviar-ho
 }
 \examples{
 #Not yet

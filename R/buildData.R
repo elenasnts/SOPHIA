@@ -216,23 +216,25 @@ buildData <- function(cdm_bbdd,
     includedCovariateConceptIds = sel_med_conceptId,
     addDescendantsToInclude = TRUE)
 
-  smoking_vars <- FeatureExtraction::createAnalysisDetails(
-    analysisId = 810,
-    sqlFileName = "DomainConcept.sql",
-    parameters = list(analysisId = 810,
-                      analysisName = "Tobacco",
-                      startDay = "anyTimePrior",
-                      endDay = 1,
-                      subType = "last",
-                      domainId = "Observation",
-                      domainTable = "observation",
-                      domainConceptId = "VALUE_AS_CONCEPT_ID",
-                      domainStartDate = "observation_date",
-                      domainEndDate = ""),
-    includedCovariateConceptIds = c(45879404, 45884037, 45883458),
-    addDescendantsToInclude = TRUE)
+  # smoking_vars <- FeatureExtraction::createAnalysisDetails(
+  #   analysisId = 810,
+  #   sqlFileName = "DomainConcept.sql",
+  #   parameters = list(analysisId = 810,
+  #                     analysisName = "Tobacco",
+  #                     startDay = "anyTimePrior",
+  #                     endDay = 1,
+  #                     subType = "last",
+  #                     domainId = "Observation",
+  #                     domainTable = "observation",
+  #                     domainConceptId = "VALUE_AS_CONCEPT_ID",
+  #                     domainStartDate = "observation_date",
+  #                     domainEndDate = ""),
+  #   includedCovariateConceptIds = c(45879404, 45884037, 45883458),
+  #   addDescendantsToInclude = TRUE)
 
   SmokingCovSet <- createSmokingCovariateSettings(useSmoking = TRUE)
+
+  T2DM_TimeCovSet <- createT2DM_TimeCovariateSettings(useT2DM_Time = TRUE)
 
   covariateSettings <- list(covDemo,
                             covMeasValueAny,
@@ -245,7 +247,8 @@ buildData <- function(cdm_bbdd,
                                    stroke_vars,
                                    TIA_vars)),
                             covDrug,
-                            SmokingCovSet)
+                            SmokingCovSet,
+                            T2DM_TimeCovSet)
 
   covariateData <- FeatureExtraction::getDbCovariateData(
     connection = cdm_bbdd,
@@ -303,6 +306,8 @@ buildData <- function(cdm_bbdd,
 
 #' Transform covariateData object into FlatTable
 #'
+#' Si volem agafar l'últim valor podem canviar-ho
+#'
 #' @param covariateData A covariateDate object
 #'
 #' @return A data.table with the covariate data
@@ -353,7 +358,8 @@ transformToFlat <- function(covariateData){
     variable = dplyr::if_else(covariateId == 3004501840706, 'Glucose', variable),
     variable = dplyr::if_else(covariateId == 3006923645706, 'ALT', variable),
     variable = dplyr::if_else(covariateId == 3020460751706, 'CRP', variable),
-    variable = dplyr::if_else(covariateId == 3001122748706, 'Ferritin', variable))
+    variable = dplyr::if_else(covariateId == 3001122748706, 'Ferritin', variable),
+    variable = dplyr::if_else(covariateId == 201820211, 'TimeT2DM', variable))
   bbdd_covar <- dplyr::group_by(.data = bbdd_covar, rowId, variable)
   bbdd_covar <- dplyr::summarise(
     .data = bbdd_covar,
@@ -367,16 +373,19 @@ transformToFlat <- function(covariateData){
     values_from = covariateValue)
   bbdd_covar <- dplyr::mutate(
     .data = bbdd_covar,
-    sex_female = dplyr::if_else(is.na(sex_female), 0, sex_female),
-    sex_male = dplyr::if_else(is.na(sex_male), 0, sex_male),
-    T2DM = dplyr::if_else(is.na(T2DM), 0, T2DM),
-    obesity = dplyr::if_else(is.na(obesity), 0, obesity),
-    angor = dplyr::if_else(is.na(angor), 0, angor),
-    tia = dplyr::if_else(is.na(tia), 0, tia),
-    stroke = dplyr::if_else(is.na(stroke), 0, stroke),
-    ami = dplyr::if_else(is.na(ami), 0, ami),
-    Current = dplyr::if_else(is.na(Current), 0, Current),
-    Former = dplyr::if_else(is.na(Former), 0, Former))
+    dplyr::across(all_of(c('sex_female', 'sex_male', 'T2DM', 'obesity', 'angor', 'tia', 'stroke', 'ami',
+                           'Current', 'Former')),
+                  ~ tidyr::replace_na(.x, 0)))
+    # sex_female = dplyr::if_else(is.na(sex_female), 0, sex_female),
+    # sex_male = dplyr::if_else(is.na(sex_male), 0, sex_male),
+    # T2DM = dplyr::if_else(is.na(T2DM), 0, T2DM),
+    # obesity = dplyr::if_else(is.na(obesity), 0, obesity),
+    # angor = dplyr::if_else(is.na(angor), 0, angor),
+    # tia = dplyr::if_else(is.na(tia), 0, tia),
+    # stroke = dplyr::if_else(is.na(stroke), 0, stroke),
+    # ami = dplyr::if_else(is.na(ami), 0, ami),
+    # Current = dplyr::if_else(is.na(Current), 0, Current),
+    # Former = dplyr::if_else(is.na(Former), 0, Former))
   return(bbdd_covar)
 }
 
@@ -461,6 +470,114 @@ getDbSmokingCovariateData <- function(connection,
                             endDay = 0,
                             isBinary = "Y",
                             missingMeansZero = "Y")
+  # Construct analysis reference:
+  metaData <- list(sql = sql, call = match.call())
+  result <- Andromeda::andromeda(covariates = covariates,
+                                 covariateRef = covariateRef,
+                                 analysisRef = analysisRef)
+  attr(result, "metaData") <- metaData
+  class(result) <- "CovariateData"
+  return(result)
+}
+
+#' Auxiliar function to create Time form T2DM diagnosis
+#'
+#' @param useT2DM_Time Logical valor
+#'
+#' @return covariateSettings object
+#' @export
+#'
+#' @examples
+#' #Not yet
+createT2DM_TimeCovariateSettings <- function(useT2DM_Time = TRUE){
+  covariateSettings <- list(useT2DM_Time = useT2DM_Time)
+  attr(covariateSettings, "fun") <- "getDbuseT2DM_TimeCovariateData"
+  class(covariateSettings) <- "covariateSettings"
+  return(covariateSettings)
+}
+
+#' Auxiliar function to create Time from T2DM diagnosis status SQL implementation
+#'
+#' @param connection A connection for a OMOP database via DatabaseConnector
+#' @param oracleTempSchema Only for Oracle Database
+#' @param cdmDatabaseSchema A name for OMOP schema
+#' @param cohortTable A name of the result cohort
+#' @param cohortId A Cohort number
+#' @param cdmVersion CDM version
+#' @param rowIdField Column with the subject identification
+#' @param covariateSettings covariateSettings object generetad via FeatureExtraction
+#' @param aggregated Logical value
+#'
+#' @return Function to use with FeatureExtraction to build covariateData
+#' @export
+#'
+#' @examples
+#' #Not yet
+getDbuseT2DM_TimeCovariateData <- function(connection,
+                                           oracleTempSchema = NULL,
+                                           cdmDatabaseSchema,
+                                           cohortTable = "#cohort_person",
+                                           cohortId = -1,
+                                           cdmVersion = "5",
+                                           rowIdField = "subject_id",
+                                           covariateSettings,
+                                           aggregated = FALSE){
+  writeLines("Constructing T2DM_Time covariates")
+  if (covariateSettings$useT2DM_Time == FALSE) {
+    return(NULL)
+  }
+
+  included_sql <- SqlRender::render(sql = "SELECT *
+                                           FROM @schema_cdm.CONCEPT_ANCESTOR
+                                           WHERE ancestor_concept_id IN (@diab_id)",
+                                    schema_cdm = cdmDatabaseSchema,
+                                    diab_id = c(201820, 442793, 443238))
+  included_id <- DatabaseConnector::querySql(connection,
+                                             sql = included_sql)
+  excluded_sql <- SqlRender::render(sql = "SELECT *
+                                           FROM @schema_cdm.CONCEPT_ANCESTOR
+                                           WHERE ancestor_concept_id IN (@diab_id)",
+                                    schema_cdm = cdmDatabaseSchema,
+                                    diab_id = c(201254, 435216, 4058243, 40484648,195771, 761051))
+  excluded_id <- DatabaseConnector::querySql(connection,
+                                             sql = excluded_sql)
+  # Some SQL to construct the covariate:
+  sql <- "SELECT DISTINCT ON (cond2.person_id)
+                 cond2.person_id AS row_id,
+                 201820211  AS covariate_id,
+                 DATEDIFF(DAY, cond2.condition_start_date, cond2.cohort_start_date) AS covariate_value
+          FROM (SELECT *
+                FROM @cdm_database_schema.CONDITION_OCCURRENCE cond
+                INNER JOIN @cohort_table cohort
+                      ON cohort.subject_id = cond.person_id
+                WHERE cond.condition_start_date <= DATEADD(DAY, 0, cohort.cohort_start_date)
+                  AND cond.condition_concept_id != 0
+                  AND cond.condition_concept_id NOT IN (@excluded_concept_table)
+                  AND cond.condition_concept_id IN (@included_concept_table)
+                  AND cohort.cohort_definition_id IN (@cohort_definition_id)) cond2
+          ORDER BY cond2.person_id, cond2.condition_start_date"
+  sql <- SqlRender::render(sql,
+                           cdm_database_schema = cdmDatabaseSchema,
+                           cohort_table = cohortTable, # ha de ser results_sc.cohortTable
+                           cohort_definition_id = cohortId,
+                           excluded_concept_table = excluded_id$DESCENDANT_CONCEPT_ID,
+                           included_concept_table = included_id$DESCENDANT_CONCEPT_ID)
+  sql <- SqlRender::translate(sql, targetDialect = attr(connection, "dbms"))
+  # Retrieve the covariate:
+  covariates <- DatabaseConnector::querySql(connection, sql, snakeCaseToCamelCase = TRUE)
+  # Construct covariate reference:
+  covariateRef <- data.frame(covariateId = c(201820211),
+                             covariateName = c('Time from T2DM'),
+                             analysisId = 211,
+                             conceptId = 201820)
+  # Construct analysis reference:
+  analysisRef <- data.frame(analysisId = 211,
+                            analysisName = "Time from T2DM",
+                            domainId = "Condition",
+                            startDay = NA,
+                            endDay = 0,
+                            isBinary = "N",
+                            missingMeansZero = "N")
   # Construct analysis reference:
   metaData <- list(sql = sql, call = match.call())
   result <- Andromeda::andromeda(covariates = covariates,
