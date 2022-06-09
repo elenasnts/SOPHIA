@@ -55,6 +55,7 @@ buildData <- function(cdm_bbdd,
   monocytes_conceptId <- c(3001604, 43055365) #LOINC
   lymphocytes_conceptId <- c(3019198, 43055366) #LOINC
   HbA1c_conceptId <- c(3034639, 3004410) #LOINC
+  creatinine_conceptId <- c(3016723)
   covMeasValueLong <- FeatureExtraction::createCovariateSettings(
     useMeasurementValueLongTerm = TRUE,
     longTermStartDays = 2*(-365.25),
@@ -77,7 +78,8 @@ buildData <- function(cdm_bbdd,
       eosinophils_conceptId,
       monocytes_conceptId,
       lymphocytes_conceptId,
-      HbA1c_conceptId),
+      HbA1c_conceptId,
+      creatinine_conceptId),
     addDescendantsToInclude = TRUE)
 
   T2DM_vars <- FeatureExtraction::createAnalysisDetails(
