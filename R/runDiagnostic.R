@@ -60,6 +60,6 @@ runDiagnostic <- function(cdm_bbdd,
   CohortGenerator::dropCohortStatsTables(connection = cdm_bbdd,
                                          cohortDatabaseSchema = results_sc,
                                          cohortTableNames = cohortTableNames)
-  CohortDiagnostics::preMergeDiagnosticsFiles(exportFolder)
+  CohortDiagnostics::createMergedResultsFile(exportFolder)
   return("Fet")
 }
