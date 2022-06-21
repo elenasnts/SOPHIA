@@ -298,7 +298,7 @@ CreateSQL_T1DM <- function(cdm_bbdd,
   #################################################################################################
   # https://ohdsi.github.io/Capr/articles/CAPR_tutorial.html
   genOp <- CirceR::createGenerateOptions(cohortIdFieldName = "cohort_definition_id",
-                                         cohortId = 3,
+                                         cohortId = 2,
                                          cdmSchema = cdm_schema,
                                          targetTable = paste(results_sc, cohortTable, sep='.'),
                                          resultSchema = results_sc,
@@ -848,7 +848,101 @@ CreateSQL_T2DM_outcome <- function(cdm_bbdd,
   OUTCOMEJson <- Capr::compileCohortDefinition(OUTCOME)
 
   genOp <- CirceR::createGenerateOptions(cohortIdFieldName = "cohort_definition_id",
-                                         cohortId = 2,
+                                         cohortId = 3,
+                                         cdmSchema = cdm_schema,
+                                         targetTable = paste(results_sc, cohortTable, sep='.'),
+                                         resultSchema = results_sc,
+                                         vocabularySchema = cdm_schema,
+                                         generateStats = T)
+  outcomeInfo <- Capr::compileCohortDefinition(OUTCOME, genOp)
+  # Modifiquem el codi per tenir els casos anteriors a l'entrada al SIDIAP.
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'E.start_date >=  OP.observation_period_start_date and ',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'WHERE DATEADD(day,0,OP.OBSERVATION_PERIOD_START_DATE) <= E.START_DATE AND DATEADD(day,0,E.START_DATE) <= OP.OBSERVATION_PERIOD_END_DATE',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'AND A.START_DATE >= P.OP_START_DATE',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_censor_stats',
+                              replacement = paste0(cohortTable, '_censor_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_inclusion_result',
+                              replacement = paste0(cohortTable, '_inclusion_result'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_inclusion_stats',
+                              replacement = paste0(cohortTable, '_inclusion_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_summary_stats',
+                              replacement = paste0(cohortTable, '_summary_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  return(outcomeInfo)
+}
+
+#' Create SQL for AMI extraction for Outcome
+#'
+#' @param cdm_bbdd A connection for a OMOP database via DatabaseConnector
+#' @param cdm_schema A name for OMOP schema
+#' @param results_sc A name for result schema
+#' @param cohortTable A name of the result cohort
+#'
+#' @return A SQL syntax
+#' @export
+#'
+#' @examples
+#' Sys.setenv("DATABASECONNECTOR_JAR_FOLDER" = "~idiap/projects/SOPHIA_codi/data/jdbcDrivers/")
+#' dbms = Sys.getenv("DBMS")
+#' user <- if (Sys.getenv("DB_USER") == "") NULL else Sys.getenv("DB_USER")
+#' password <- if (Sys.getenv("DB_PASSWORD") == "") NULL else Sys.getenv("DB_PASSWORD")
+#' server = Sys.getenv("DB_SERVER")
+#' port = Sys.getenv("DB_PORT")
+#' connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
+#'                                                                 server = server,
+#'                                                                 user = user,
+#'                                                                 password = password,
+#'                                                                 port = port)
+#' cdm_bbdd <- DatabaseConnector::connect(connectionDetails = connectionDetails)
+#' cdm_schema <- 'omop21t2_test'
+#' results_sc <- 'sophia_test'
+#' cohortTable <- 'prova_Capr'
+#' outcomeInfo <- CreateSQL_AMI(cdm_bbdd, cdm_schema, results_sc, cohortTable)
+CreateSQL_AMI <- function(cdm_bbdd,
+                          cdm_schema,
+                          results_sc,
+                          cohortTable){
+  #################################################################################################
+  # Cohort OUTCOME
+
+  #AMI
+  AMIDx <- Capr::createConceptSetExpression(
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(312327),# 4108217, 433128, 4329847),
+                                           connection = cdm_bbdd,
+                                           vocabularyDatabaseSchema = cdm_schema),
+    Name = "AMI Diagnosis",
+    includeDescendants = TRUE)
+  # AMIDx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
+
+  #################################################################################################
+  # Building Queries
+  AMIDxQuery <- Capr::createConditionOccurrence(conceptSetExpression = AMIDx)
+
+  #################################################################################################
+  # Creating the Initial Cohort Entry
+  OutcomePrimaryCriteria <- Capr::createPrimaryCriteria(
+    Name = "Outcome: Angor, AMI, Stroke and TIA",
+    ComponentList = list(AMIDxQuery),
+    ObservationWindow = Capr::createObservationWindow(PriorDays = 0L,
+                                                      PostDays = 0L),
+    Limit = "All")
+
+  OUTCOME <- Capr::createCohortDefinition(Name = "OUTCOME",
+                                          PrimaryCriteria = OutcomePrimaryCriteria)
+  # JSON
+  OUTCOMEJson <- Capr::compileCohortDefinition(OUTCOME)
+
+  genOp <- CirceR::createGenerateOptions(cohortIdFieldName = "cohort_definition_id",
+                                         cohortId = 3,
                                          cdmSchema = cdm_schema,
                                          targetTable = paste(results_sc, cohortTable, sep='.'),
                                          resultSchema = results_sc,
