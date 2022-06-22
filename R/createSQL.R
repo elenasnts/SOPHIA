@@ -973,3 +973,281 @@ CreateSQL_AMI <- function(cdm_bbdd,
                               x = outcomeInfo$ohdiSQL)
   return(outcomeInfo)
 }
+
+#' Create SQL for angor extraction for Outcome
+#'
+#' @param cdm_bbdd A connection for a OMOP database via DatabaseConnector
+#' @param cdm_schema A name for OMOP schema
+#' @param results_sc A name for result schema
+#' @param cohortTable A name of the result cohort
+#'
+#' @return A SQL syntax
+#' @export
+#'
+#' @examples
+#' Sys.setenv("DATABASECONNECTOR_JAR_FOLDER" = "~idiap/projects/SOPHIA_codi/data/jdbcDrivers/")
+#' dbms = Sys.getenv("DBMS")
+#' user <- if (Sys.getenv("DB_USER") == "") NULL else Sys.getenv("DB_USER")
+#' password <- if (Sys.getenv("DB_PASSWORD") == "") NULL else Sys.getenv("DB_PASSWORD")
+#' server = Sys.getenv("DB_SERVER")
+#' port = Sys.getenv("DB_PORT")
+#' connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
+#'                                                                 server = server,
+#'                                                                 user = user,
+#'                                                                 password = password,
+#'                                                                 port = port)
+#' cdm_bbdd <- DatabaseConnector::connect(connectionDetails = connectionDetails)
+#' cdm_schema <- 'omop21t2_test'
+#' results_sc <- 'sophia_test'
+#' cohortTable <- 'prova_Capr'
+#' outcomeInfo <- CreateSQL_angor(cdm_bbdd, cdm_schema, results_sc, cohortTable)
+CreateSQL_angor <- function(cdm_bbdd,
+                            cdm_schema,
+                            results_sc,
+                            cohortTable){
+  #################################################################################################
+  # Cohort OUTCOME
+  #Angina
+  AngorDx <- Capr::createConceptSetExpression(
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(321318),
+                                           connection = cdm_bbdd,
+                                           vocabularyDatabaseSchema = cdm_schema),
+    Name = "Angor Diagnosis",
+    includeDescendants = TRUE)
+
+  #################################################################################################
+  # Building Queries
+  AngorDxQuery <- Capr::createConditionOccurrence(conceptSetExpression = AngorDx)
+
+  #################################################################################################
+  # Creating the Initial Cohort Entry
+  OutcomePrimaryCriteria <- Capr::createPrimaryCriteria(
+    Name = "Outcome: Angor, AMI, Stroke and TIA",
+    ComponentList = list(AngorDxQuery),
+    ObservationWindow = Capr::createObservationWindow(PriorDays = 0L,
+                                                      PostDays = 0L),
+    Limit = "All")
+
+  OUTCOME <- Capr::createCohortDefinition(Name = "OUTCOME",
+                                          PrimaryCriteria = OutcomePrimaryCriteria)
+  # JSON
+  OUTCOMEJson <- Capr::compileCohortDefinition(OUTCOME)
+
+  genOp <- CirceR::createGenerateOptions(cohortIdFieldName = "cohort_definition_id",
+                                         cohortId = 4,
+                                         cdmSchema = cdm_schema,
+                                         targetTable = paste(results_sc, cohortTable, sep='.'),
+                                         resultSchema = results_sc,
+                                         vocabularySchema = cdm_schema,
+                                         generateStats = T)
+  outcomeInfo <- Capr::compileCohortDefinition(OUTCOME, genOp)
+  # Modifiquem el codi per tenir els casos anteriors a l'entrada al SIDIAP.
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'E.start_date >=  OP.observation_period_start_date and ',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'WHERE DATEADD(day,0,OP.OBSERVATION_PERIOD_START_DATE) <= E.START_DATE AND DATEADD(day,0,E.START_DATE) <= OP.OBSERVATION_PERIOD_END_DATE',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'AND A.START_DATE >= P.OP_START_DATE',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_censor_stats',
+                              replacement = paste0(cohortTable, '_censor_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_inclusion_result',
+                              replacement = paste0(cohortTable, '_inclusion_result'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_inclusion_stats',
+                              replacement = paste0(cohortTable, '_inclusion_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_summary_stats',
+                              replacement = paste0(cohortTable, '_summary_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  return(outcomeInfo)
+}
+
+#' Create SQL for Ischemic Stroke extraction for Outcome
+#'
+#' @param cdm_bbdd A connection for a OMOP database via DatabaseConnector
+#' @param cdm_schema A name for OMOP schema
+#' @param results_sc A name for result schema
+#' @param cohortTable A name of the result cohort
+#'
+#' @return A SQL syntax
+#' @export
+#'
+#' @examples
+#' Sys.setenv("DATABASECONNECTOR_JAR_FOLDER" = "~idiap/projects/SOPHIA_codi/data/jdbcDrivers/")
+#' dbms = Sys.getenv("DBMS")
+#' user <- if (Sys.getenv("DB_USER") == "") NULL else Sys.getenv("DB_USER")
+#' password <- if (Sys.getenv("DB_PASSWORD") == "") NULL else Sys.getenv("DB_PASSWORD")
+#' server = Sys.getenv("DB_SERVER")
+#' port = Sys.getenv("DB_PORT")
+#' connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
+#'                                                                 server = server,
+#'                                                                 user = user,
+#'                                                                 password = password,
+#'                                                                 port = port)
+#' cdm_bbdd <- DatabaseConnector::connect(connectionDetails = connectionDetails)
+#' cdm_schema <- 'omop21t2_test'
+#' results_sc <- 'sophia_test'
+#' cohortTable <- 'prova_Capr'
+#' outcomeInfo <- CreateSQL_stroke_i(cdm_bbdd, cdm_schema, results_sc, cohortTable)
+CreateSQL_stroke_i <- function(cdm_bbdd,
+                               cdm_schema,
+                               results_sc,
+                               cohortTable){
+  #################################################################################################
+  # Cohort OUTCOME
+  #Ictus
+  StrokeDx <- Capr::createConceptSetExpression(
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(43530727, 443454),# 255919, 43022059),
+                                           connection = cdm_bbdd,
+                                           vocabularyDatabaseSchema = cdm_schema),
+    Name = "Stroke Diagnosis",
+    includeDescendants = TRUE)
+  # StrokeDx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
+
+  #################################################################################################
+  # Building Queries
+  StrokeDxQuery <- Capr::createConditionOccurrence(conceptSetExpression = StrokeDx)
+
+  #################################################################################################
+  # Creating the Initial Cohort Entry
+  OutcomePrimaryCriteria <- Capr::createPrimaryCriteria(
+    Name = "Outcome: Angor, AMI, Stroke and TIA",
+    ComponentList = list(StrokeDxQuery),
+    ObservationWindow = Capr::createObservationWindow(PriorDays = 0L,
+                                                      PostDays = 0L),
+    Limit = "All")
+
+  OUTCOME <- Capr::createCohortDefinition(Name = "OUTCOME",
+                                          PrimaryCriteria = OutcomePrimaryCriteria)
+  # JSON
+  OUTCOMEJson <- Capr::compileCohortDefinition(OUTCOME)
+
+  genOp <- CirceR::createGenerateOptions(cohortIdFieldName = "cohort_definition_id",
+                                         cohortId = 5,
+                                         cdmSchema = cdm_schema,
+                                         targetTable = paste(results_sc, cohortTable, sep='.'),
+                                         resultSchema = results_sc,
+                                         vocabularySchema = cdm_schema,
+                                         generateStats = T)
+  outcomeInfo <- Capr::compileCohortDefinition(OUTCOME, genOp)
+  # Modifiquem el codi per tenir els casos anteriors a l'entrada al SIDIAP.
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'E.start_date >=  OP.observation_period_start_date and ',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'WHERE DATEADD(day,0,OP.OBSERVATION_PERIOD_START_DATE) <= E.START_DATE AND DATEADD(day,0,E.START_DATE) <= OP.OBSERVATION_PERIOD_END_DATE',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'AND A.START_DATE >= P.OP_START_DATE',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_censor_stats',
+                              replacement = paste0(cohortTable, '_censor_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_inclusion_result',
+                              replacement = paste0(cohortTable, '_inclusion_result'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_inclusion_stats',
+                              replacement = paste0(cohortTable, '_inclusion_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_summary_stats',
+                              replacement = paste0(cohortTable, '_summary_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  return(outcomeInfo)
+}
+
+#' Create SQL for TIA extraction for Outcome
+#'
+#' @param cdm_bbdd A connection for a OMOP database via DatabaseConnector
+#' @param cdm_schema A name for OMOP schema
+#' @param results_sc A name for result schema
+#' @param cohortTable A name of the result cohort
+#'
+#' @return A SQL syntax
+#' @export
+#'
+#' @examples
+#' Sys.setenv("DATABASECONNECTOR_JAR_FOLDER" = "~idiap/projects/SOPHIA_codi/data/jdbcDrivers/")
+#' dbms = Sys.getenv("DBMS")
+#' user <- if (Sys.getenv("DB_USER") == "") NULL else Sys.getenv("DB_USER")
+#' password <- if (Sys.getenv("DB_PASSWORD") == "") NULL else Sys.getenv("DB_PASSWORD")
+#' server = Sys.getenv("DB_SERVER")
+#' port = Sys.getenv("DB_PORT")
+#' connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
+#'                                                                 server = server,
+#'                                                                 user = user,
+#'                                                                 password = password,
+#'                                                                 port = port)
+#' cdm_bbdd <- DatabaseConnector::connect(connectionDetails = connectionDetails)
+#' cdm_schema <- 'omop21t2_test'
+#' results_sc <- 'sophia_test'
+#' cohortTable <- 'prova_Capr'
+#' outcomeInfo <- CreateSQL_TIA(cdm_bbdd, cdm_schema, results_sc, cohortTable)
+CreateSQL_TIA <- function(cdm_bbdd,
+                          cdm_schema,
+                          results_sc,
+                          cohortTable){
+  #################################################################################################
+  # Cohort OUTCOME
+  #TIA
+  TIADx <- Capr::createConceptSetExpression(
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(373503, 381591),# 4353709, 43022059),
+                                           connection = cdm_bbdd,
+                                           vocabularyDatabaseSchema = cdm_schema),
+    Name = "TIA Diagnosis",
+    includeDescendants = TRUE)
+  # TIADx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
+
+  #################################################################################################
+  # Building Queries
+  TIADxQuery <- Capr::createConditionOccurrence(conceptSetExpression = TIADx)
+
+  #################################################################################################
+  # Creating the Initial Cohort Entry
+  OutcomePrimaryCriteria <- Capr::createPrimaryCriteria(
+    Name = "Outcome: Angor, AMI, Stroke and TIA",
+    ComponentList = list(TIADxQuery),
+    ObservationWindow = Capr::createObservationWindow(PriorDays = 0L,
+                                                      PostDays = 0L),
+    Limit = "All")
+
+  OUTCOME <- Capr::createCohortDefinition(Name = "OUTCOME",
+                                          PrimaryCriteria = OutcomePrimaryCriteria)
+  # JSON
+  OUTCOMEJson <- Capr::compileCohortDefinition(OUTCOME)
+
+  genOp <- CirceR::createGenerateOptions(cohortIdFieldName = "cohort_definition_id",
+                                         cohortId = 6,
+                                         cdmSchema = cdm_schema,
+                                         targetTable = paste(results_sc, cohortTable, sep='.'),
+                                         resultSchema = results_sc,
+                                         vocabularySchema = cdm_schema,
+                                         generateStats = T)
+  outcomeInfo <- Capr::compileCohortDefinition(OUTCOME, genOp)
+  # Modifiquem el codi per tenir els casos anteriors a l'entrada al SIDIAP.
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'E.start_date >=  OP.observation_period_start_date and ',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'WHERE DATEADD(day,0,OP.OBSERVATION_PERIOD_START_DATE) <= E.START_DATE AND DATEADD(day,0,E.START_DATE) <= OP.OBSERVATION_PERIOD_END_DATE',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'AND A.START_DATE >= P.OP_START_DATE',
+                              replacement = '',
+                              x = outcomeInfo$ohdiSQL, fixed = T)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_censor_stats',
+                              replacement = paste0(cohortTable, '_censor_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_inclusion_result',
+                              replacement = paste0(cohortTable, '_inclusion_result'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_inclusion_stats',
+                              replacement = paste0(cohortTable, '_inclusion_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  outcomeInfo$ohdiSQL <- gsub(pattern = 'cohort_summary_stats',
+                              replacement = paste0(cohortTable, '_summary_stats'),
+                              x = outcomeInfo$ohdiSQL)
+  return(outcomeInfo)
+}
