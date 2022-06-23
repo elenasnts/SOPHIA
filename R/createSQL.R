@@ -33,7 +33,7 @@ CreateSQL_T1DM <- function(cdm_bbdd,
   # Definicions del Capr (https://ohdsi.github.io/Capr/articles/complex-cohort-example.html)
   #Type 1 Diabetes Diagnosis
   T1Dx <- Capr::createConceptSetExpression(
-    conceptSet = Capr::getConceptIdDetails(conceptIds = c(201254, 435216, 4058243, 40484648),
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(201254, 435216, 40484648),
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "Type 1 Diabetes Diagnosis",
