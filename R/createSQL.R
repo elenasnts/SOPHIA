@@ -40,6 +40,30 @@ CreateSQL_T1DM <- function(cdm_bbdd,
     includeDescendants = TRUE)
   # T1Dx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
 
+  # Type 2 Diabetes segons Covid19CharacterizationCharybdis
+  # <-- S'ha de posar en l'ordre que et dóna el getConceptIdDetails
+  conceptMapping <- Capr::createConceptMapping(
+    n = 9,
+    includeDescendants = rep(T, 9),      # <--
+    isExcluded = c(T, T, F, T, F, F, T, T, T)) # <--
+  DMDx <- Capr::createConceptSetExpressionCustom(
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(201820, 442793, 443238,
+                                                          201254, 435216, 4058243, 40484648,
+                                                          #Afegit mirant atlas-phenotype
+                                                          195771, 761051), #diabetis secondaria
+                                           connection = cdm_bbdd,
+                                           vocabularyDatabaseSchema = cdm_schema),
+    Name = "Diabetes Diagnosis",
+    conceptMapping = conceptMapping)
+  # # arreglo errors del paquet
+  # DMDx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
+  DMDx_hist <- Capr::createConceptSetExpression(
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(40769338, 43021173, 42539022, 46270562),
+                                           connection = cdm_bbdd,
+                                           vocabularyDatabaseSchema = cdm_schema),
+    Name = "History of Diabetes Diagnosis",
+    includeDescendants = TRUE)
+  # DMDx_hist@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
   #Secondary Diabetes Diagnosis
   SecondDMDx <- Capr::createConceptSetExpression(
     conceptSet = Capr::getConceptIdDetails(conceptIds = c(195771, 761051),
@@ -149,12 +173,35 @@ CreateSQL_T1DM <- function(cdm_bbdd,
     Name = "Systemic steroids: H02 Medications",
     includeDescendants = TRUE)
   # CortiRx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
+
+  # Eating disorder
+  EatingDisorderDx <- Capr::createConceptSetExpression(
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(439002, 436675, 438407, #F50
+                                                          442165), #R63.0
+                                           connection = cdm_bbdd,
+                                           vocabularyDatabaseSchema = cdm_schema),
+    Name = "Malignant Neoplasm",
+    includeDescendants = TRUE)
+  # Eating disorder
+  SymptomsHyperglycaemiaDx <- Capr::createConceptSetExpression(
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(4049477,# R63.1 Polidípsia
+                                                          435928,# R63.4 Abnormal weight loss
+                                                          79936, 200843, 40304526 #R35 poliúria
+                                                          ),
+                                           connection = cdm_bbdd,
+                                           vocabularyDatabaseSchema = cdm_schema),
+    Name = "Malignant Neoplasm",
+    includeDescendants = TRUE)
   #################################################################################################
   # Building Queries
   #T1Dx Condition Occurrence Query
   T1DxQuery <- Capr::createConditionOccurrence(conceptSetExpression = T1Dx)
   #T1Rx Drug Exposure Query
   T1RxQuery <- Capr::createDrugExposure(conceptSetExpression = T1Rx)
+  #DMDx Condition Occurrence Query
+  DMDxQuery <- Capr::createConditionOccurrence(conceptSetExpression = DMDx)
+  #DMDx_hist Condition Occurrence Query
+  DMDx_histQuery <- Capr::createConditionOccurrence(conceptSetExpression = DMDx_hist)
   #SecondDMDx Condition Occurrence Query
   SecondDMDxQuery <- Capr::createConditionOccurrence(conceptSetExpression = SecondDMDx)
 
@@ -174,6 +221,10 @@ CreateSQL_T1DM <- function(cdm_bbdd,
   MaligNeoDxQuery <- Capr::createConditionOccurrence(conceptSetExpression = MaligNeoDx)
   #CortiRx Drug Exposure Query
   CortiRxQuery <- Capr::createDrugExposure(conceptSetExpression = CortiRx)
+  #EatingDisorderDx Condition Occurrence Query
+  EatingDisorderDxQuery <- Capr::createConditionOccurrence(conceptSetExpression = EatingDisorderDx)
+  #SymptomsHyperglycaemiaDx Condition Occurrence Query
+  SymptomsHyperglycaemiaDxQuery <- Capr::createConditionOccurrence(conceptSetExpression = SymptomsHyperglycaemiaDx)
 
   #################################################################################################
   # Creating the Initial Cohort Entry
@@ -198,6 +249,19 @@ CreateSQL_T1DM <- function(cdm_bbdd,
                                           criteriaList = NULL,
                                           demographicCriteriaList = list(AgeAtt),
                                           Groups = NULL)
+
+  # No T1Dx at any point in patient history
+  tl1 <- Capr::createTimeline(StartWindow = Capr::createWindow(StartDays = "All",
+                                                               StartCoeff = "Before",
+                                                               EndDays = "All",
+                                                               EndCoeff = "After"))
+  noDMDxCount <- Capr::createCount(Query = DMDxQuery,
+                                   Logic = "exactly",
+                                   Count = 0L,
+                                   Timeline = tl1)
+  noDMDxGroup <- Capr::createGroup(Name = "No Diagnosis of Type 2 Diabetes",
+                                   type = "ALL",
+                                   criteriaList = list(noDMDxCount))
 
   tlprev <- Capr::createTimeline(StartWindow = Capr::createWindow(StartDays = "All",
                                                                   StartCoeff = "Before",
@@ -263,14 +327,35 @@ CreateSQL_T1DM <- function(cdm_bbdd,
                                       type = "ALL",
                                       criteriaList = list(noCortiRxCount))
 
+  # No EatingDisorderDx at any point previous to DM in patient history
+  noEatingDisorderDxCount <- Capr::createCount(Query = EatingDisorderDxQuery,
+                                               Logic = "exactly",
+                                               Count = 0L,
+                                               Timeline = tlprev)
+  noEatingDisorderDxGroup <- Capr::createGroup(Name = "No previous Eating disorder",
+                                               type = "ALL",
+                                               criteriaList = list(noEatingDisorderDxCount))
+
+  # No SymptomsHyperglycaemiaDx at any point previous to DM in patient history
+  noSymptomsHyperglycaemiaDxCount <- Capr::createCount(Query = SymptomsHyperglycaemiaDxQuery,
+                                               Logic = "exactly",
+                                               Count = 0L,
+                                               Timeline = tlprev)
+  noSymptomsHyperglycaemiaDxGroup <- Capr::createGroup(Name = "No previous Symptoms Hyperglycaemia",
+                                               type = "ALL",
+                                               criteriaList = list(noSymptomsHyperglycaemiaDxCount))
+
   InclusionRules <- Capr::createInclusionRules(Name = "Inclusion Rules",
                                                Contents = list(Age18AndOlderGroup,
-                                                               # noSecondDMDxGroup,
+                                                               noDMDxGroup,
+                                                               noSecondDMDxGroup,
                                                                noRenalDxGroup,
                                                                noSchizophreniaDxGroup,
                                                                noSeizureDxGroup,
                                                                noMaligNeoDxGroup,
-                                                               noCortiRxGroup),
+                                                               noCortiRxGroup,
+                                                               noEatingDisorderDxGroup,
+                                                               noSymptomsHyperglycaemiaDxGroup),
                                                Limit = "First")
 
   #################################################################################################
@@ -393,7 +478,7 @@ CreateSQL_T2DM <- function(cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "History of Diabetes Diagnosis",
     includeDescendants = TRUE)
-  DMDx_hist@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
+  # DMDx_hist@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
   #Type 1 Diabetes Diagnosis
   T1Dx <- Capr::createConceptSetExpression(
     conceptSet = Capr::getConceptIdDetails(conceptIds = c(201254, 435216, 4058243, 40484648),
@@ -1120,7 +1205,7 @@ CreateSQL_stroke_i <- function(cdm_bbdd,
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "Stroke Diagnosis",
-    includeDescendants = TRUE)
+    includeDescendants = FALSE)
   # StrokeDx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
 
   #################################################################################################
@@ -1217,7 +1302,7 @@ CreateSQL_TIA <- function(cdm_bbdd,
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "TIA Diagnosis",
-    includeDescendants = TRUE)
+    includeDescendants = FALSE)
   # TIADx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
 
   #################################################################################################
