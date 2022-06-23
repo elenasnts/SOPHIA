@@ -916,7 +916,16 @@ CreateSQL_AMI <- function(cdm_bbdd,
 
   #AMI
   AMIDx <- Capr::createConceptSetExpression(
-    conceptSet = Capr::getConceptIdDetails(conceptIds = c(312327),# 4108217, 433128, 4329847),
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(#I21
+      312327, 4296653, 45766075, 45766116, 4296653, 4270024, 4329847,
+      #I22
+      4108217, 4108677, 4108218, 45766241, 45766114, 45766114,
+      #I23
+      4329847, 4108678, 438172, 4119953, 4108679, 4108219, 4108220, 4108680,
+      4198141),
+                                             # c(312327, 4108217,
+                                             #              438172, 4119953, 4108219, 4108680,
+                                             #              4198141),# , 433128, 4329847),
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "AMI Diagnosis",
@@ -1009,11 +1018,11 @@ CreateSQL_angor <- function(cdm_bbdd,
   # Cohort OUTCOME
   #Angina
   AngorDx <- Capr::createConceptSetExpression(
-    conceptSet = Capr::getConceptIdDetails(conceptIds = c(321318),
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(321318, 315296, 4127089),
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "Angor Diagnosis",
-    includeDescendants = TRUE)
+    includeDescendants = FALSE)
 
   #################################################################################################
   # Building Queries
@@ -1194,7 +1203,8 @@ CreateSQL_TIA <- function(cdm_bbdd,
   # Cohort OUTCOME
   #TIA
   TIADx <- Capr::createConceptSetExpression(
-    conceptSet = Capr::getConceptIdDetails(conceptIds = c(373503, 381591),# 4353709, 43022059),
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(373503, #381591,
+                                                          437306, 4045737, 4045738, 4046360),# 4353709, 43022059),
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "TIA Diagnosis",
