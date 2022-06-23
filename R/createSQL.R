@@ -1110,7 +1110,13 @@ CreateSQL_stroke_i <- function(cdm_bbdd,
   # Cohort OUTCOME
   #Ictus
   StrokeDx <- Capr::createConceptSetExpression(
-    conceptSet = Capr::getConceptIdDetails(conceptIds = c(43530727, 443454),# 255919, 43022059),
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(
+      #I63
+      443454, 4110189, 4110190, 4043731, 4110192, 4108356, 443454, 4111714,
+      #I64
+      #I65
+      43022059, 4153380, 4159164, 443239),
+      #43530727, 443454),# 255919, 43022059),
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "Stroke Diagnosis",
@@ -1203,8 +1209,11 @@ CreateSQL_TIA <- function(cdm_bbdd,
   # Cohort OUTCOME
   #TIA
   TIADx <- Capr::createConceptSetExpression(
-    conceptSet = Capr::getConceptIdDetails(conceptIds = c(373503, #381591,
-                                                          437306, 4045737, 4045738, 4046360),# 4353709, 43022059),
+    conceptSet = Capr::getConceptIdDetails(conceptIds = c(#G45
+      373503,
+      437306, 4338523, 381036, 4112020, 4048785,
+      #G46
+      381591, 4110194, 4108360, 4110195, 4111710, 4111711, 4045737, 4045738, 4046360),# 4353709, 43022059),
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "TIA Diagnosis",
