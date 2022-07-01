@@ -9,6 +9,8 @@
 #' @return A covariateData object
 #' @export
 #'
+#' @importFrom rlang .data
+#'
 #' @examples
 #' # Not yet
 buildData <- function(cdm_bbdd,
@@ -180,6 +182,176 @@ buildData <- function(cdm_bbdd,
     includedCovariateConceptIds = c(373503, 381591),
     addDescendantsToInclude = TRUE)
 
+  COPD_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 117,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 117,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(255841, 261325, 255573),
+    addDescendantsToInclude = TRUE)
+
+  CKD_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 118,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 118,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(46271022, 192359),
+    addDescendantsToInclude = TRUE)
+
+  cancer_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 119,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 119,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(443392, 4144289, 439392, 200962, 139750, 4311499, 137809, 197500),
+    addDescendantsToInclude = TRUE)
+
+  depress_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 120,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 120,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(4282096, 4282316, 433440),
+    addDescendantsToInclude = TRUE)
+
+  htn_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 121,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 121,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(320128, 442604, 444101, 319034, 443919, 44782429, 44784621,
+                                    439696, 319826, 317895, 443771, 4110948, 319826),
+    addDescendantsToInclude = TRUE)
+
+  hf_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 122,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 122,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(316139, 319835, 439846, 443580, 443587, 4229440, 4273632, 40479192,
+                                    40479576, 40480602, 40480603, 40481042, 40481043, 40482727, 44782718,
+                                    44782733),
+    addDescendantsToInclude = TRUE)
+
+  liver_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 123,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 123,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(4098652, 197795, 4211974, 4012113,
+                                    192240, 192242, 193693, 196625, 197490, 197494, 198683,
+                                    198964, 439673, 439674, 439675,
+                                    4245975, 200763, 4267417, 194990, 194984,
+                                    192675, 192680, 196455, 199867, 200762,
+                                    201901, 377604, 4026125, 4046123, 4058696, 4059290, 4064161,
+                                    4135822, 4238978, 4240725, 4313846, 4340390,
+                                    4340394, 4340941, 4340948, 40484532, 46269836),
+    addDescendantsToInclude = TRUE)
+
+  ra_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 124,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 124,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(36684997, 80809), #M05, M06
+    addDescendantsToInclude = TRUE)
+
+  sleep_apnea_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 125,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 125,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(313459), #G47.3
+    addDescendantsToInclude = TRUE)
+
+  pcos_vars <- FeatureExtraction::createAnalysisDetails(
+    analysisId = 126,
+    sqlFileName = "DomainConcept.sql",
+    parameters = list(analysisId = 126,
+                      analysisName = "COPD",
+                      startDay = "anyTimePrior",
+                      endDay = 0,
+                      subType = "all",
+                      domainId = "Condition",
+                      domainTable = "condition_occurrence",
+                      domainConceptId = "condition_concept_id",
+                      domainStartDate = "condition_start_date",
+                      domainEndDate = "condition_start_date"),
+    includedCovariateConceptIds = c(40443308), #E28.2
+    addDescendantsToInclude = TRUE)
+
   A10_conceptId <- c(21600712,
                      782681, 793321, 1502829, 1502830, 1503327, 1525221, 1529352,
                      1547554, 1596977, 1597761, 1597772, 1597773, 1597781, 1597792,
@@ -247,7 +419,17 @@ buildData <- function(cdm_bbdd,
                                    angor_vars,
                                    ami_vars,
                                    stroke_vars,
-                                   TIA_vars)),
+                                   TIA_vars,
+                                   COPD_vars,
+                                   CKD_vars,
+                                   cancer_vars,
+                                   depress_vars,
+                                   htn_vars,
+                                   hf_vars,
+                                   liver_vars,
+                                   ra_vars,
+                                   sleep_apnea_vars,
+                                   pcos_vars)),
                             covDrug,
                             SmokingCovSet,
                             T2DM_TimeCovSet)
@@ -274,34 +456,74 @@ buildData <- function(cdm_bbdd,
                     4044391111, 4009303111, 376112111, 4159742111, 4114427111, 4131908111)
   obesity_conceptId <- dplyr::pull(
     dplyr::filter(covariateData$covariateRef,
-                  analysisId == 112),
-    covariateId)
+                  .data$analysisId == 112),
+    .data$covariateId)
   angina_conceptId <- dplyr::pull(
     dplyr::filter(covariateData$covariateRef,
-                  analysisId == 113),
-    covariateId)
+                  .data$analysisId == 113),
+    .data$covariateId)
   ami_conceptId <- dplyr::pull(
     dplyr::filter(covariateData$covariateRef,
-                  analysisId == 114),
-    covariateId)
+                  .data$analysisId == 114),
+    .data$covariateId)
   stroke_conceptId <- dplyr::pull(
     dplyr::filter(covariateData$covariateRef,
-                  analysisId == 115),
-    covariateId)
+                  .data$analysisId == 115),
+    .data$covariateId)
   tia_conceptId <- dplyr::pull(
     dplyr::filter(covariateData$covariateRef,
-                  analysisId == 116),
-    covariateId)
+                  .data$analysisId == 116),
+    .data$covariateId)
+  COPD_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 117),
+    .data$covariateId)
+  CKD_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 118),
+    .data$covariateId)
+  cancer_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 119),
+    .data$covariateId)
+  depress_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 120),
+    .data$covariateId)
+  htn_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 121),
+    .data$covariateId)
+  hf_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 122),
+    .data$covariateId)
+  liver_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 123),
+    .data$covariateId)
+  ra_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 124),
+    .data$covariateId)
+  sleep_apnea_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 125),
+    .data$covariateId)
+  pcos_conceptId <- dplyr::pull(
+    dplyr::filter(covariateData$covariateRef,
+                  .data$analysisId == 126),
+    .data$covariateId)
 
   covariateData$covariates <- dplyr::mutate(
     .data = covariateData$covariates,
-    covariateId = if_else(covariateId %in% T2DM_conceptId, 201826111, covariateId),
-    covariateId = if_else(covariateId %in% DM_conceptId, 201820111, covariateId),
-    covariateId = if_else(covariateId %in% obesity_conceptId, 433736112, covariateId),
-    covariateId = if_else(covariateId %in% angina_conceptId, 321318113, covariateId),
-    covariateId = if_else(covariateId %in% ami_conceptId, 312327114, covariateId),
-    covariateId = if_else(covariateId %in% stroke_conceptId, 443454115, covariateId),
-    covariateId = if_else(covariateId %in% tia_conceptId, 373503116, covariateId))
+    covariateId = dplyr::if_else(.data$covariateId %in% T2DM_conceptId, 201826111, .data$covariateId),
+    covariateId = dplyr::if_else(.data$covariateId %in% DM_conceptId, 201820111, .data$covariateId),
+    covariateId = dplyr::if_else(.data$covariateId %in% obesity_conceptId, 433736112, .data$covariateId),
+    covariateId = dplyr::if_else(.data$covariateId %in% angina_conceptId, 321318113, .data$covariateId),
+    covariateId = dplyr::if_else(.data$covariateId %in% ami_conceptId, 312327114, .data$covariateId),
+    covariateId = dplyr::if_else(.data$covariateId %in% stroke_conceptId, 443454115, .data$covariateId),
+    covariateId = dplyr::if_else(.data$covariateId %in% tia_conceptId, 373503116, .data$covariateId))
   covariateData$covariates <- dplyr::distinct(covariateData$covariates)
   return(covariateData)
 }
@@ -315,6 +537,8 @@ buildData <- function(cdm_bbdd,
 #' @return A data.table with the covariate data
 #' @export
 #'
+#' @importFrom rlang .data
+#'
 #' @examples
 #' #Not yet
 transformToFlat <- function(covariateData){
@@ -322,61 +546,71 @@ transformToFlat <- function(covariateData){
   bbdd_covar <-  dplyr::mutate(
     .data = bbdd_covar,
     variable = as.character(NA),
-    variable = dplyr::if_else(covariateId == 1002, 'age', variable),
-    variable = dplyr::if_else(covariateId == 8507001, 'sex_male', variable),
-    variable = dplyr::if_else(covariateId == 8532001, 'sex_female', variable),
-    variable = dplyr::if_else(stringr::str_sub(covariateId, start = -3L) == 111, 'T2DM', variable),
-    variable = dplyr::if_else(stringr::str_sub(covariateId, start = -3L) == 112, 'obesity', variable),
-    variable = dplyr::if_else(stringr::str_sub(covariateId, start = -3L) == 113, 'angor', variable),
-    variable = dplyr::if_else(stringr::str_sub(covariateId, start = -3L) == 114, 'ami', variable),
-    variable = dplyr::if_else(stringr::str_sub(covariateId, start = -3L) == 115, 'stroke', variable),
-    variable = dplyr::if_else(stringr::str_sub(covariateId, start = -3L) == 116, 'tia', variable),
-    variable = dplyr::if_else(covariateId == 21600712411, 'A10', variable),
-    variable = dplyr::if_else(covariateId == 21600713411, 'A10A', variable),
-    variable = dplyr::if_else(covariateId == 21600744411, 'A10B', variable),
-    variable = dplyr::if_else(covariateId == 21601238411, 'C01', variable),
-    variable = dplyr::if_else(covariateId == 21600381411, 'C02', variable),
-    variable = dplyr::if_else(covariateId == 21601461411, 'C03', variable),
-    variable = dplyr::if_else(covariateId == 21601664411, 'C07', variable),
-    variable = dplyr::if_else(covariateId == 21601744411, 'C08', variable),
-    variable = dplyr::if_else(covariateId == 21601782411, 'C09', variable),
-    variable = dplyr::if_else(covariateId == 21601853411, 'C10', variable),
-    variable = dplyr::if_else(covariateId == 21603933411, 'M01A', variable),
-    variable = dplyr::if_else(covariateId == 45879404, 'Never', variable),
-    variable = dplyr::if_else(covariateId == 45884037, 'Current', variable),
-    variable = dplyr::if_else(covariateId == 45883458, 'Former', variable),
-    variable = dplyr::if_else(covariateId == 3038553531705, 'BMI', variable),
-    variable = dplyr::if_else(covariateId == 3036277582705, 'height', variable),
-    variable = dplyr::if_else(covariateId == 3025315529705, 'weight', variable),
-    variable = dplyr::if_else(covariateId %in% c(3004249323706, 4152194876706), 'SBP', variable),
-    variable = dplyr::if_else(covariateId %in% c(3012888323706, 4154790876706), 'DBP', variable),
-    variable = dplyr::if_else(covariateId == 3010813848706, 'Leukocytes', variable),
-    variable = dplyr::if_else(covariateId == 3001604554706, 'Monocytes', variable),
-    variable = dplyr::if_else(covariateId == 3034639554706, 'HbA1c', variable),
-    variable = dplyr::if_else(covariateId == 3027114840706, 'cT', variable),
-    variable = dplyr::if_else(covariateId == 3011884840706, 'cHDL', variable),
-    variable = dplyr::if_else(covariateId == 3028437840706, 'cLDL', variable),
-    variable = dplyr::if_else(covariateId == 3022192840706, 'Tg', variable),
-    variable = dplyr::if_else(covariateId == 3004501840706, 'Glucose', variable),
-    variable = dplyr::if_else(covariateId == 3006923645706, 'ALT', variable),
-    variable = dplyr::if_else(covariateId == 3020460751706, 'CRP', variable),
-    variable = dplyr::if_else(covariateId == 3001122748706, 'Ferritin', variable),
-    variable = dplyr::if_else(substr(covariateId, 1, 7) == 3016723, 'Creatinine', variable),
-    variable = dplyr::if_else(covariateId == 201820211, 'TimeT2DM', variable))
-  bbdd_covar <- dplyr::group_by(.data = bbdd_covar, rowId, variable)
+    variable = dplyr::if_else(.data$covariateId == 1002, 'age', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 8507001, 'sex_male', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 8532001, 'sex_female', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 111, 'T2DM', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 112, 'obesity', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 113, 'angor', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 114, 'ami', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 115, 'stroke', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'tia', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'COPD_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'CKD_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'cancer_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'depress_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'htn_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'hf_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'liver_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'ra_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'sleep_apnea_vars', .data$variable),
+    variable = dplyr::if_else(stringr::str_sub(.data$covariateId, start = -3L) == 116, 'pcos_vars', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21600712411, 'A10', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21600713411, 'A10A', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21600744411, 'A10B', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21601238411, 'C01', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21600381411, 'C02', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21601461411, 'C03', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21601664411, 'C07', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21601744411, 'C08', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21601782411, 'C09', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21601853411, 'C10', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 21603933411, 'M01A', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 45879404, 'Never', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 45884037, 'Current', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 45883458, 'Former', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3038553531705, 'BMI', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3036277582705, 'height', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3025315529705, 'weight', .data$variable),
+    variable = dplyr::if_else(.data$covariateId %in% c(3004249323706, 4152194876706), 'SBP', .data$variable),
+    variable = dplyr::if_else(.data$covariateId %in% c(3012888323706, 4154790876706), 'DBP', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3010813848706, 'Leukocytes', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3001604554706, 'Monocytes', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3034639554706, 'HbA1c', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3027114840706, 'cT', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3011884840706, 'cHDL', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3028437840706, 'cLDL', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3022192840706, 'Tg', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3004501840706, 'Glucose', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3006923645706, 'ALT', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3020460751706, 'CRP', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 3001122748706, 'Ferritin', .data$variable),
+    variable = dplyr::if_else(substr(.data$covariateId, 1, 7) == 3016723, 'Creatinine', .data$variable),
+    variable = dplyr::if_else(.data$covariateId == 201820211, 'TimeT2DM', .data$variable))
+  bbdd_covar <- dplyr::group_by(.data = bbdd_covar, .data$rowId, .data$variable)
   bbdd_covar <- dplyr::summarise(
     .data = bbdd_covar,
-    covariateValue = mean(covariateValue),
+    covariateValue = mean(.data$covariateValue),
     .groups = 'keep')
   bbdd_covar <- dplyr::ungroup(x = bbdd_covar)
   bbdd_covar <- tidyr::pivot_wider(
     data = bbdd_covar,
-    id_cols = rowId,
-    names_from = variable,
-    values_from = covariateValue)
+    id_cols = 'rowId',
+    names_from = 'variable',
+    values_from = 'covariateValue')
   bbdd_covar <- dplyr::mutate(
     .data = bbdd_covar,
-    dplyr::across(all_of(c('sex_female', 'sex_male', 'T2DM', 'obesity', 'angor', 'tia', 'stroke', 'ami',
+    dplyr::across(dplyr::all_of(c('sex_female', 'sex_male', 'T2DM', 'obesity', 'angor', 'tia', 'stroke', 'ami',
                            'Current', 'Former')),
                   ~ tidyr::replace_na(.x, 0)))
     # sex_female = dplyr::if_else(is.na(sex_female), 0, sex_female),

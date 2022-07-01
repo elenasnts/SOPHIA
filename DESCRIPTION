@@ -19,12 +19,10 @@ Imports:
     CirceR,
     CohortDiagnostics,
     CohortGenerator,
-    data.table,
     DatabaseConnector,
     dplyr,
     FeatureExtraction,
-    roxygen2,
+    rlang,
     SqlRender,
     stringr,
-    tidyr,
-    uuid
+    tidyr
