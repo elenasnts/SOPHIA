@@ -515,26 +515,26 @@ buildData <- function(cdm_bbdd,
                   .data$analysisId == 126),
     .data$covariateId)
 
-  covariateData$covariates <- dplyr::mutate(
-    .data = covariateData$covariates,
-    covariateId = dplyr::if_else(.data$covariateId %in% T2DM_conceptId, 201826111, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% DM_conceptId, 201820111, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% obesity_conceptId, 433736112, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% angina_conceptId, 321318113, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% ami_conceptId, 312327114, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% stroke_conceptId, 443454115, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% tia_conceptId, 373503116, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% COPD_conceptId, 255841117, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% CKD_conceptId, 46271022118, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% cancer_conceptId, 443392119, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% depress_conceptId, 4282096120, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% htn_conceptId, 320128121, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% hf_conceptId, 316139122, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% liver_conceptId, 194984123, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% ra_conceptId, 80809124, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% sleep_apnea_conceptId, 313459125, .data$covariateId),
-    covariateId = dplyr::if_else(.data$covariateId %in% pcos_conceptId, 40443308126, .data$covariateId))
-  covariateData$covariates <- dplyr::distinct(covariateData$covariates)
+  # covariateData$covariates <- dplyr::mutate(
+  #   .data = covariateData$covariates,
+  #   covariateId = dplyr::if_else(.data$covariateId %in% T2DM_conceptId, 201826111, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% DM_conceptId, 201820111, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% obesity_conceptId, 433736112, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% angina_conceptId, 321318113, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% ami_conceptId, 312327114, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% stroke_conceptId, 443454115, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% tia_conceptId, 373503116, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% COPD_conceptId, 255841117, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% CKD_conceptId, 46271022118, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% cancer_conceptId, 443392119, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% depress_conceptId, 4282096120, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% htn_conceptId, 320128121, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% hf_conceptId, 316139122, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% liver_conceptId, 194984123, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% ra_conceptId, 80809124, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% sleep_apnea_conceptId, 313459125, .data$covariateId),
+  #   covariateId = dplyr::if_else(.data$covariateId %in% pcos_conceptId, 40443308126, .data$covariateId))
+  # covariateData$covariates <- dplyr::distinct(covariateData$covariates)
   return(covariateData)
 }
 
