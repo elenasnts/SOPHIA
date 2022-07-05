@@ -131,7 +131,7 @@ buildData <- function(cdm_bbdd,
                       domainConceptId = "condition_concept_id",
                       domainStartDate = "condition_start_date",
                       domainEndDate = "condition_start_date"),
-    includedCovariateConceptIds = c(321318),
+    includedCovariateConceptIds = c(321318, 315296, 4127089),
     addDescendantsToInclude = TRUE)
 
   ami_vars <- FeatureExtraction::createAnalysisDetails(
@@ -147,7 +147,13 @@ buildData <- function(cdm_bbdd,
                       domainConceptId = "condition_concept_id",
                       domainStartDate = "condition_start_date",
                       domainEndDate = "condition_start_date"),
-    includedCovariateConceptIds = c(312327),
+    includedCovariateConceptIds = c(#I21
+      312327, 4296653, 45766075, 45766116, 4296653, 4270024, 4329847,
+      #I22
+      4108217, 4108677, 4108218, 45766241, 45766114, 45766114,
+      #I23
+      4329847, 4108678, 438172, 4119953, 4108679, 4108219, 4108220, 4108680,
+      4198141),
     addDescendantsToInclude = TRUE)
 
   stroke_vars <- FeatureExtraction::createAnalysisDetails(
@@ -163,7 +169,12 @@ buildData <- function(cdm_bbdd,
                       domainConceptId = "condition_concept_id",
                       domainStartDate = "condition_start_date",
                       domainEndDate = "condition_start_date"),
-    includedCovariateConceptIds = c(43530727, 443454),
+    includedCovariateConceptIds = c(
+      #I63
+      443454, 4110189, 4110190, 4043731, 4110192, 4108356, 443454, 4111714,
+      #I64
+      #I65
+      43022059, 4153380, 4159164, 443239),
     addDescendantsToInclude = TRUE)
 
   TIA_vars <- FeatureExtraction::createAnalysisDetails(
@@ -179,7 +190,11 @@ buildData <- function(cdm_bbdd,
                       domainConceptId = "condition_concept_id",
                       domainStartDate = "condition_start_date",
                       domainEndDate = "condition_start_date"),
-    includedCovariateConceptIds = c(373503, 381591),
+    includedCovariateConceptIds = c(#G45
+      373503,
+      437306, 4338523, 381036, 4112020, 4048785,
+      #G46
+      381591, 4110194, 4108360, 4110195, 4111710, 4111711, 4045737, 4045738, 4046360),
     addDescendantsToInclude = TRUE)
 
   COPD_vars <- FeatureExtraction::createAnalysisDetails(
