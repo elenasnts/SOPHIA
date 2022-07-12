@@ -850,22 +850,22 @@ CreateSQL_T2DM <- function(cdm_bbdd,
 #' @export
 #'
 #' @examples
-#' Sys.setenv("DATABASECONNECTOR_JAR_FOLDER" = "~idiap/projects/SOPHIA_codi/data/jdbcDrivers/")
-#' dbms = Sys.getenv("DBMS")
-#' user <- if (Sys.getenv("DB_USER") == "") NULL else Sys.getenv("DB_USER")
-#' password <- if (Sys.getenv("DB_PASSWORD") == "") NULL else Sys.getenv("DB_PASSWORD")
-#' server = Sys.getenv("DB_SERVER")
-#' port = Sys.getenv("DB_PORT")
-#' connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
-#'                                                                 server = server,
-#'                                                                 user = user,
-#'                                                                 password = password,
-#'                                                                 port = port)
-#' cdm_bbdd <- DatabaseConnector::connect(connectionDetails = connectionDetails)
-#' cdm_schema <- 'omop21t2_test'
-#' results_sc <- 'sophia_test'
-#' cohortTable <- 'prova_Capr'
-#' outcomeInfo <- CreateSQL_T2DM_outcome(cdm_bbdd, cdm_schema, results_sc, cohortTable)
+#' # Sys.setenv("DATABASECONNECTOR_JAR_FOLDER" = "~idiap/projects/SOPHIA_codi/data/jdbcDrivers/")
+#' # dbms = Sys.getenv("DBMS")
+#' # user <- if (Sys.getenv("DB_USER") == "") NULL else Sys.getenv("DB_USER")
+#' # password <- if (Sys.getenv("DB_PASSWORD") == "") NULL else Sys.getenv("DB_PASSWORD")
+#' # server = Sys.getenv("DB_SERVER")
+#' # port = Sys.getenv("DB_PORT")
+#' # connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
+#' #                                                                  server = server,
+#' #                                                                  user = user,
+#' #                                                                  password = password,
+#' #                                                                  port = port)
+#' # cdm_bbdd <- DatabaseConnector::connect(connectionDetails = connectionDetails)
+#' # cdm_schema <- 'omop21t2_test'
+#' # results_sc <- 'sophia_test'
+#' # cohortTable <- 'prova_Capr'
+#' # outcomeInfo <- CreateSQL_T2DM_outcome(cdm_bbdd, cdm_schema, results_sc, cohortTable)
 CreateSQL_T2DM_outcome <- function(cdm_bbdd,
                                    cdm_schema,
                                    results_sc,

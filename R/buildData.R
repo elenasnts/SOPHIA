@@ -853,3 +853,90 @@ getDbuseT2DM_TimeCovariateData <- function(connection,
   class(result) <- "CovariateData"
   return(result)
 }
+
+#' Build a Follow-up Data for cohort
+#'
+#' @param cdm_bbdd A connection for a OMOP database via DatabaseConnector
+#' @param cdm_schema A name for OMOP schema
+#' @param results_sc A name for result schema
+#' @param cohortTable A name of the result cohort
+#' @param acohortId A Cohort number
+#' @param bbdd_covar A data.table create by transformToFlat function
+#'
+#' @return A data.frame object
+#' @export
+#'
+#' @importFrom rlang .data
+#'
+#' @examples
+#' # Not yet
+buildFollowUp <- function(cdm_bbdd,
+                          cdm_schema,
+                          results_sc,
+                          cohortTable,
+                          acohortId = 1,
+                          bbdd_covar){
+  obs_per_sql <- "SELECT * FROM @omopSc.OBSERVATION_PERIOD
+                  WHERE person_id IN (SELECT subject_id FROM @resultSc.@cohortTable)"
+  obs_per <- DatabaseConnector::querySql(connection = cdm_bbdd,
+                                         sql = SqlRender::render(sql = obs_per_sql,
+                                                                 omopSc = cdm_schema,
+                                                                 resultSc = results_sc,
+                                                                 cohortTable = cohortTable))
+  # death_sql <- "SELECT * FROM @omopSc.DEATH
+  #               WHERE person_id IN (SELECT subject_id FROM @resultSc.@cohortTable)"
+  # death <- DatabaseConnector::querySql(connection = cdm_bbdd,
+  #                                      sql = SqlRender::render(sql = death_sql,
+  #                                                              omopSc = cdm_schema,
+  #                                                              resultSc = results_sc,
+  #                                                              cohortTable = cohortTable))
+
+  cohort <- DatabaseConnector::querySql(connection = cdm_bbdd,
+                                        sql = SqlRender::render(sql = "SELECT * FROM @resultSc.@cohortTable",
+                                                                resultSc = results_sc,
+                                                                cohortTable = cohortTable))
+
+  cohort_event <- cohort[cohort$COHORT_DEFINITION_ID %in% c(acohortId, 3:6)]
+  cohort_event$event <- as.character(NA)
+  cohort_event$event[cohort_event$COHORT_DEFINITION_ID == acohortId] <- 'dintro'
+  cohort_event$event[cohort_event$COHORT_DEFINITION_ID == 3] <- 'AMI'
+  cohort_event$event[cohort_event$COHORT_DEFINITION_ID == 4] <- 'Angor'
+  cohort_event$event[cohort_event$COHORT_DEFINITION_ID == 5] <- 'StrokeI'
+  cohort_event$event[cohort_event$COHORT_DEFINITION_ID == 6] <- 'TIA'
+
+  cohort_event_w <- tidyr::pivot_wider(data = cohort_event,
+                                       id_cols = "SUBJECT_ID",
+                                       names_from = 'event',
+                                       names_prefix = 'ep_',
+                                       values_from = "COHORT_START_DATE")
+  names(cohort_event_w)[2] <- 'dintro'
+  cohort_event_w <- merge(cohort_event_w,
+                          obs_per[, c("PERSON_ID", "OBSERVATION_PERIOD_END_DATE")],
+                          by.x = 'SUBJECT_ID',
+                          by.y = 'PERSON_ID',
+                          all.x = TRUE)
+
+  bbdd_covar <- merge(bbdd_covar,
+                      cohort_event_w,
+                      by.x = 'rowId',
+                      by.y = "SUBJECT_ID",
+                      all.x = TRUE)
+  bbdd_covar$i.ep_AMI <- 0
+  bbdd_covar$i.ep_AMI[bbdd_covar$dintro < bbdd_covar$ep_AMI &
+                        bbdd_covar$ep_AMI <= bbdd_covar$OBSERVATION_PERIOD_END_DATE] <- 1
+  bbdd_covar$t.ep_AMI <- as.numeric(pmin(bbdd_covar$ep_AMI, bbdd_covar$OBSERVATION_PERIOD_END_DATE, na.rm = T) - bbdd_covar$dintro)
+  bbdd_covar$i.ep_Angor <- 0
+  bbdd_covar$i.ep_Angor[bbdd_covar$dintro < bbdd_covar$ep_Angor &
+                          bbdd_covar$ep_Angor <= bbdd_covar$OBSERVATION_PERIOD_END_DATE] <- 1
+  bbdd_covar$t.ep_Angor <- as.numeric(pmin(bbdd_covar$ep_Angor, bbdd_covar$OBSERVATION_PERIOD_END_DATE, na.rm = T) - bbdd_covar$dintro)
+  bbdd_covar$i.ep_StrokeI <- 0
+  bbdd_covar$i.ep_StrokeI[bbdd_covar$dintro < bbdd_covar$ep_StrokeI &
+                            bbdd_covar$ep_StrokeI <= bbdd_covar$OBSERVATION_PERIOD_END_DATE] <- 1
+  bbdd_covar$t.ep_StrokeI <- as.numeric(pmin(bbdd_covar$ep_StrokeI, bbdd_covar$OBSERVATION_PERIOD_END_DATE, na.rm = T) - bbdd_covar$dintro)
+  bbdd_covar$i.ep_TIA <- 0
+  bbdd_covar$i.ep_TIA[bbdd_covar$dintro < bbdd_covar$ep_TIA &
+                        bbdd_covar$ep_TIA <= bbdd_covar$OBSERVATION_PERIOD_END_DATE] <- 1
+  bbdd_covar$t.ep_TIA <- as.numeric(pmin(bbdd_covar$ep_TIA, bbdd_covar$OBSERVATION_PERIOD_END_DATE, na.rm = T) - bbdd_covar$dintro)
+
+  return(bbdd_covar)
+}
