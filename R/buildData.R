@@ -635,7 +635,7 @@ transformToFlat <- function(covariateData){
     values_from = 'covariateValue')
   bbdd_covar <- dplyr::mutate(
     .data = bbdd_covar,
-    dplyr::across(dplyr::all_of(c('sex_female', 'sex_male', 'T2DM', 'obesity', 'angor', 'tia', 'stroke',
+    dplyr::across(dplyr::any_of(c('sex_female', 'sex_male', 'T2DM', 'obesity', 'angor', 'tia', 'stroke',
                                   'ami', 'Current', 'Former', 'Never',
                                   'A10', 'A10A', 'A10B','C01', 'C02', 'C03', 'C07', 'C08', 'C09', 'C10',
                                   'M01A',
