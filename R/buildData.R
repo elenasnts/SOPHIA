@@ -896,7 +896,7 @@ buildFollowUp <- function(cdm_bbdd,
                                                                 resultSc = results_sc,
                                                                 cohortTable = cohortTable))
 
-  cohort_event <- cohort[cohort$COHORT_DEFINITION_ID %in% c(acohortId, 3:6)]
+  cohort_event <- cohort[cohort$COHORT_DEFINITION_ID %in% c(acohortId, 3:6),]
   cohort_event$event <- as.character(NA)
   cohort_event$event[cohort_event$COHORT_DEFINITION_ID == acohortId] <- 'dintro'
   cohort_event$event[cohort_event$COHORT_DEFINITION_ID == 3] <- 'AMI'
