@@ -1014,7 +1014,7 @@ CreateSQL_AMI <- function(cdm_bbdd,
                                            connection = cdm_bbdd,
                                            vocabularyDatabaseSchema = cdm_schema),
     Name = "AMI Diagnosis",
-    includeDescendants = TRUE)
+    includeDescendants = FALSE)
   # AMIDx@ConceptSetExpression[[1]]@id <- uuid::UUIDgenerate()
 
   #################################################################################################
