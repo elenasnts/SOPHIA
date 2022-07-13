@@ -132,7 +132,7 @@ buildData <- function(cdm_bbdd,
                       domainStartDate = "condition_start_date",
                       domainEndDate = "condition_start_date"),
     includedCovariateConceptIds = c(321318, 315296, 4127089),
-    addDescendantsToInclude = TRUE)
+    addDescendantsToInclude = FALSE)
 
   ami_vars <- FeatureExtraction::createAnalysisDetails(
     analysisId = 114,
@@ -154,7 +154,7 @@ buildData <- function(cdm_bbdd,
       #I23
       4329847, 4108678, 438172, 4119953, 4108679, 4108219, 4108220, 4108680,
       4198141),
-    addDescendantsToInclude = TRUE)
+    addDescendantsToInclude = FALSE)
 
   stroke_vars <- FeatureExtraction::createAnalysisDetails(
     analysisId = 115,
@@ -175,7 +175,7 @@ buildData <- function(cdm_bbdd,
       #I64
       #I65
       43022059, 4153380, 4159164, 443239),
-    addDescendantsToInclude = TRUE)
+    addDescendantsToInclude = FALSE)
 
   TIA_vars <- FeatureExtraction::createAnalysisDetails(
     analysisId = 116,
@@ -195,7 +195,7 @@ buildData <- function(cdm_bbdd,
       437306, 4338523, 381036, 4112020, 4048785,
       #G46
       381591, 4110194, 4108360, 4110195, 4111710, 4111711, 4045737, 4045738, 4046360),
-    addDescendantsToInclude = TRUE)
+    addDescendantsToInclude = FALSE)
 
   COPD_vars <- FeatureExtraction::createAnalysisDetails(
     analysisId = 117,
